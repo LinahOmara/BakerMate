@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file name="/BakerOrg/BakerOrg.Infrastructure/BakerOrg.Infrastructure.csproj" checksum="3195277430" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Infrastructure/src/Repositories/BakerOrg/BakerOrgRepository.cs" checksum="1221359160" read-only="false" />
+  <file name="/BakerOrg/BakerOrg.Infrastructure/src/Repositories/BakerOrg/Bootstrap.cs" checksum="1283534192" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Infrastructure/src/Repositories/Bootstrap.cs" checksum="618014499" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Infrastructure/src/Repositories/RepositoryBase.cs" checksum="1809496605" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Services/BakerOrg.Services.csproj" checksum="4135800483" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/BakerOrg/BakerOrgService.cs" checksum="2255836643" read-only="false" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/BakerOrg/Bootstrap.cs" checksum="1629813206" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/BakerOrg/DTOs/IngrediantCountDto.cs" checksum="2710783837" read-only="false" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/BakerOrg/DTOs/RecipeWightAndIngrediantCountDto.cs" checksum="4034949259" read-only="false" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/BakerOrg/DTOs/RecipeWightDto.cs" checksum="2680197357" read-only="false" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/BakerOrg/IBakerOrgRepository.cs" checksum="1679706156" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/BakerOrg/IBakerOrgService.cs" checksum="2354029931" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/Bootstrap.cs" checksum="850302650" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/FileData.cs" checksum="4290520075" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/ObjectNotFoundException.cs" checksum="2118582811" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Services/src/Services/ServiceBase.cs" checksum="752270528" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Test/BakerOrg.Test.csproj" checksum="2346706276" read-only="true" />
+  <file name="/BakerOrg/BakerOrg.Test/src/FunctionalTest/BakerOrg/BakerOrgTest.cs" checksum="1048353813" read-only="false" />
+  <file name="/BakerOrg/BakerOrg.Test/src/FunctionalTest/CustomWebApplicationFactory.cs" checksum="2769446020" read-only="false" />
+  <file name="/BakerOrg/BakerOrg.Test/xunit.runner.json" checksum="1506223285" read-only="true" />
+  <file name="/BakerOrg/BakerOrg/BakerOrg.csproj" checksum="3918709467" read-only="true" />
+  <file name="/BakerOrg/BakerOrg/Properties/launchSettings.json" checksum="424596664" read-only="true" />
+  <file name="/BakerOrg/BakerOrg/appsettings.Development.json" checksum="898922546" read-only="false" />
+  <file name="/BakerOrg/BakerOrg/appsettings.json" checksum="1650630398" read-only="false" />
+  <file name="/BakerOrg/BakerOrg/src/Controllers/APIController.cs" checksum="530149700" read-only="true" />
+  <file name="/BakerOrg/BakerOrg/src/Controllers/BakerOrg/BakerOrgController.cs" checksum="102171319" read-only="true" />
+  <file name="/BakerOrg/BakerOrg/src/Filters/ExceptionFilter.cs" checksum="1205711803" read-only="true" />
+  <file name="/BakerOrg/BakerOrg/src/Filters/QueryStringConstraintAttribute.cs" checksum="3193124438" read-only="true" />
+  <file name="/BakerOrg/BakerOrg/src/OpenAPI.cs" checksum="1648621965" read-only="true" />
+  <file name="/BakerOrg/BakerOrg/src/Program.cs" checksum="3769707972" read-only="true" />
+  <file name="/BakerOrg/BakerOrg/src/Startup.cs" checksum="953925474" read-only="true" />
+  <file name="/Tools/QueryApiTests/src/baker-org.test.ts" checksum="497859609" read-only="false" />
+</files>

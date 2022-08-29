@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+    <!---
+    You can find here the description of the **Baker organizer service** APIs
+    -->
+    <module id="baker-org">
+      
+      <services>
+      
+        <service id="baker-org" repositories="baker-org" >
+
+          <!--
+          -->
+          <operation id="get-wight-per-recipe" output="recipe-wight-dto{}" uri="api/bakerOrg/getRecipeWight" method="post" bridge="true" >
+            <param id="recipes-id" type="int()" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="get-ingrediants-cout" output="ingrediant-count-dto{}" uri="api/bakerOrg/GetIngrediantsCount" method="post" bridge="true" >
+            <param id="recipes-id" type="int()" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="get-recipe-weight-and-ingrediants-cout" output="recipe-wight-and-ingrediant-count-dto{}" uri="api/bakerOrg/GetRecipeWightAndIngrediantsCount" method="post" bridge="true" >
+            <param id="recipes-id" type="int()" />
+          </operation>
+
+        </service>
+      
+        
+      </services>
+      
+      <repositories>
+      
+        <!---
+        -->
+        <repository id="baker-org" depends-on="BakerGuru.Common.DB.QueryFactory db, BakerGuru.Common.DB.DBContext dbContext">
+
+          <!--
+          -->
+          <operation id="get-wight-per-recipe" output="recipe-wight-dto{}" >
+            <param id="recipes-id" type="int()" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="get-ingrediants-cout" output="ingrediant-count-dto{}" >
+            <param id="recipes-id" type="int()" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="get-recipe-weight-and-ingrediants-cout" output="recipe-wight-and-ingrediant-count-dto{}" >
+            <param id="recipes-id" type="int()" />
+          </operation>
+
+        </repository>
+      
+      </repositories>
+      
+      <types>
+        
+        <!---
+        -->
+        <type id="ingrediant-count-dto" />
+
+        <!---
+        -->
+        <type id="recipe-wight-dto" />
+
+        <!---
+        -->
+        <type id="recipe-wight-and-ingrediant-count-dto" />
+
+      </types>
+    
+    </module>

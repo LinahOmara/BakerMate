@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<solution xmlns:xi ="http://www.w3.org/2001/XInclude"
+     id ="raisa" 
+     name ="Raisa" 
+     abbreviations = "em,ihs,tc,qq,og"
+     version = "1">
+
+  <copyright>
+    Copyright (c) 2019-present RaisaEnergy. All Rights Reserved.
+    
+    Licensed Material - Property of RaisaEnergy.
+  </copyright>
+
+  <applications>
+    <!--   
+    <xi:include href="economic-model/model.xml" />
+    -->
+    <xi:include href="baker-guru/model.xml" />
+  </applications>
+
+</solution>
