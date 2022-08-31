@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+    <!---
+    You can find here the description of the **Baker organizer service** APIs
+    -->
+    <module id="ingrediant">
+      
+      <services>
+      
+        <service id="ingrediant" repositories="ingrediant" >
+
+          <!--
+          -->
+          <operation id="create" output="int" uri="api/ingrediant" method="post" bridge="false" >
+            <param id="new-ingrediant" type="ingrediant-dto" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="update" output="int" uri="api/ingrediant/{id}" method="put" bridge="false" >
+            <param id="ingrediant-id" type="int" />
+            <param id="new-ingrediant" type="ingrediant-dto" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="delete" output="int" uri="api/ingrediant" method="delete" bridge="false" />
+
+          <!--
+          -->
+          <operation id="get" output="int" uri="api/ingrediant" method="get" bridge="true" >
+            <param id="new-ingrediant" type="ingrediant-dto" />
+          </operation>
+
+        </service>
+        
+      </services>
+      
+      <repositories>
+      
+        <repository id="ingrediant" depends-on="">
+
+         
+          <!--
+          -->
+          <operation id="create" output="int" >
+            <param id="new-ingrediant" type="ingrediant-dto" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="update" output="int" >
+            <param id="ingrediant-id" type="int" />
+            <param id="new-ingrediant" type="ingrediant-dto" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="delete" output="int" />
+
+          <!--
+          -->
+          <operation id="get" output="int" >
+            <param id="new-ingrediant" type="ingrediant-dto" />
+          </operation>
+
+        </repository>
+      </repositories>
+      
+      <types>
+        
+        <!---
+        -->
+        <type id="ingrediant-dto" />
+        
+      </types>
+    
+    </module>
