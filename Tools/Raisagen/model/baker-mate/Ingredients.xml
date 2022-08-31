@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+    <!---
+    You can find here the description of the **Baker organizer service** APIs
+    -->
+    <module id="Ingredients">
+      
+      <services>
+      
+        <service id="ingredient" repositories="ingredient" depends-on="BakerMate.DbContext.Presistance.BakerMateContext dbContext">
+
+          <!--
+          -->
+          <operation id="create" output="int" uri="api/Ingredients" method="post" bridge="false" >
+            <param id="new-Ingredient" type="Ingredient-dto" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="update" output="int" uri="api/Ingredients/{id}" method="put" bridge="false" >
+            <param id="Ingredient-id" type="int" />
+            <param id="new-Ingredient" type="Ingredient-dto" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="delete" output="void" uri="api/Ingredients" method="delete" bridge="false" >
+            <param id="id" type= "int" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="get" output="Ingredient-dto{}" uri="api/Ingredients" method="get" bridge="true" />
+        
+        </service>
+        
+      </services>
+      
+      <repositories>
+      
+        <repository id="ingredient" depends-on="BakerMate.DbContext.Presistance.BakerMateContext dbContext">
+
+         
+          <!--
+          -->
+          <operation id="create" output="int" >
+            <param id="new-ingredient" type="BakerMate.Domain.Model.ingredient" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="update" output="int" >
+            <param id="new-ingredient" type="BakerMate.Domain.Model.ingredient" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="delete" output="void" >
+            <param id="id" type= "int" />
+          </operation>
+
+          <!--
+          -->
+          <operation id="get" output="BakerMate.Domain.Model.ingredient{}" />
+
+          <!--
+          -->
+          <operation id="get" output="BakerMate.Domain.Model.ingredient" >
+            <param id="id" type= "int" />
+          </operation>
+
+        </repository>
+      </repositories>
+      
+      <types>
+        
+        <!---
+        -->
+        <type id="Ingredient-dto" />
+        
+      </types>
+    
+    </module>

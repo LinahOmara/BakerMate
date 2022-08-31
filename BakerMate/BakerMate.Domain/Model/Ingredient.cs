@@ -11,10 +11,11 @@ namespace BakerMate.Domain.Model
         public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
-        public string PurchaseLocation { get; set; }
+        public string PurchaceLocation { get; set; }
         public int UnitOfMeasureId { get; set; }
-        public UnitOfMeasure UnitOfMeasure { get; set; }
         public bool IsDeleted { get; set; }
-
+        public UnitOfMeasure UnitOfMeasure { get; set; }
+        public List<Recipe> Recipes { get; set; }
+        public List<RecipeIngredient> RecipeIngredients { get; set; }
     }
 }

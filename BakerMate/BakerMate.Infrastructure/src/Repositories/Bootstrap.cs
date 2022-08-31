@@ -7,8 +7,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BakerMate.Repositories.BakerOrg;
-using BakerMate.Repositories.Ingrediant;
-using BakerMate.Repositories.Recipe;
+using BakerMate.Repositories.Ingredients;
+using BakerMate.Repositories.Recipes;
 
 namespace BakerMate.Repositories
 {
@@ -17,8 +17,8 @@ namespace BakerMate.Repositories
         public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddBakerOrgRepositories(configuration);
-            services.AddRecipeRepositories(configuration);
-            services.AddIngrediantRepositories(configuration);
+            services.AddRecipesRepositories(configuration);
+            services.AddIngredientsRepositories(configuration);
             return services;
         }
     }

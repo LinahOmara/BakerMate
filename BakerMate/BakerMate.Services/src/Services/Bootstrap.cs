@@ -7,8 +7,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BakerMate.Services.BakerOrg;
-using BakerMate.Services.Ingrediant;
-using BakerMate.Services.Recipe;
+using BakerMate.Services.Ingredients;
+using BakerMate.Services.Recipes;
 
 namespace BakerMate.Services
 {
@@ -17,8 +17,8 @@ namespace BakerMate.Services
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddBakerOrgServices(configuration);
-            services.AddRecipeServices(configuration);
-            services.AddIngrediantServices(configuration);
+            services.AddRecipesServices(configuration);
+            services.AddIngredientsServices(configuration);
             return services;
         }
     }

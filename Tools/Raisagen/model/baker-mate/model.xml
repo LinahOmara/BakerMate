@@ -11,8 +11,8 @@
 
   <modules>
     <xi:include href="baker-org.xml" />
-    <xi:include href="recipe.xml" />
-    <xi:include href="ingrediant.xml" />
+    <xi:include href="recipes.xml" />
+    <xi:include href="ingredients.xml" />
   </modules>
 
 </app>

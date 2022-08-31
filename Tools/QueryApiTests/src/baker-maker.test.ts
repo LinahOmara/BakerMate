@@ -23,7 +23,7 @@ app('baker-maker', async ctx => {
     })
   })
 
-  module(ctx, 'recipe', ctx => {
+  module(ctx, 'recipes', ctx => {
 
     service(ctx, 'recipe', ctx => {
       operation(ctx, 'Create', '/api/recipe', [
@@ -55,19 +55,19 @@ app('baker-maker', async ctx => {
     })
   })
 
-  module(ctx, 'ingrediant', ctx => {
+  module(ctx, 'Ingredients', ctx => {
 
-    service(ctx, 'ingrediant', ctx => {
-      operation(ctx, 'Create', '/api/ingrediant', [
-        { _query: { newIngrediant: 'IngrediantDto' }  }
+    service(ctx, 'ingredient', ctx => {
+      operation(ctx, 'Create', '/api/Ingredients', [
+        { _query: { newIngredient: 'IngredientDto' }  }
       ])
-      operation(ctx, 'Update', '/api/ingrediant/{id}', [
-        { _query: { ingrediantId: 0 , newIngrediant: 'IngrediantDto' }  }
+      operation(ctx, 'Update', '/api/Ingredients/{id}', [
+        { _query: { ingredientId: 0 , newIngredient: 'IngredientDto' }  }
       ])
-      operation(ctx, 'Delete', '/api/ingrediant')
-      operation(ctx, 'Get', '/api/ingrediant', [
-        { _query: { newIngrediant: 'IngrediantDto' }  }
+      operation(ctx, 'Delete', '/api/Ingredients', [
+        { _query: { id: 0 }  }
       ])
+      operation(ctx, 'Get', '/api/Ingredients')
     })
   })
 })
