@@ -13,8 +13,8 @@ namespace BakerMate.DbContext.Presistance
         public BakerMateContext CreateDbContext(string[] args = null)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BakerMateContext>();
-            optionsBuilder.UseSqlServer("data source=.\\SQLEXPRESS;initial catalog=TrailHead_riverbend;integrated security=True;"); 
-            return null;
+            optionsBuilder.UseSqlite("data source= C:\\Users\\Administrator\\Desktop\\Work");
+            return new BakerMateContext(optionsBuilder.Options);
         }
     }
 }
