@@ -8,7 +8,6 @@ namespace BakerMate.Domain.Model
 {
     public class RecipeIngredient
     {
-        public int Id { get; set; }
         public int RecipieId { get; set; }
         public int IngredientId { get; set; }
         public double IngredientQuantity { get; set; }

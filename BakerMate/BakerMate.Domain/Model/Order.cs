@@ -17,7 +17,7 @@ namespace BakerMate.Domain.Model
         public bool Delivered { get; set; }
         public double Cost { get; set; }
         public double Revenue { get; set; }
-        public List<Recipe> Recipes { get; set; }
+        public List<OrderRecipe> Recipes { get; set; }
 
     }
 }
