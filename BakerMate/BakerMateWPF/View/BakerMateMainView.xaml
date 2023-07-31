@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:BakerMate.WPF.View"
         xmlns:viewModel="clr-namespace:BakerMate.WPF.ViewModel"
         mc:Ignorable="d" 
-        Title="Baker Mate" Height="800" Width="1280" WindowStartupLocation="CenterScreen"
+        Title="Baker Mate" Height="700" Width="1280" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" MouseDown="Window_MouseDown">
     <Window.DataContext>
         <viewModel:BakerMateMainViewModel/>
@@ -22,8 +22,8 @@
         <Border CornerRadius="10 0 0 10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#223266" Offset="0"/>
-                    <GradientStop Color="#27396b" Offset="1"/>
+                    <GradientStop Color="#87bdbe" Offset="0"/>
+                    <GradientStop Color="#97d3d4" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -32,20 +32,20 @@
                     <Border CornerRadius="10" Width="60" Height="40">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                <GradientStop Color="#7f7cf1" Offset="0"/>
-                                <GradientStop Color="#d3b7ff" Offset="1"/>
+                                <GradientStop Color="#1e2a2a" Offset="0"/>
+                                <GradientStop Color="#4b696a" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.Background>
                         <TextBlock Text="BM" Foreground="#FFFFFF" FontSize="22" FontWeight="SemiBold"
                                    TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2"/>
                     </Border>
                     <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
-                        <TextBlock Text="Bake Mate " FontSize="15" Margin="0 0 0 5" Foreground="#c2cfff"/>
+                        <TextBlock Text="Baker Mate " FontSize="15" Margin="0 0 0 5" Foreground="#1e2a2a
+"/>
                     </StackPanel>
                 </StackPanel>
-                <Separator Height="0.8" Margin="20 30" Background="#46558a"/>
+                <Separator Height="0.8" Margin="20 30" Background="Black"/>
                 <RadioButton Style="{StaticResource menuButton}" Command="{Binding CategoryCommand}">
-
                     <StackPanel Orientation="Horizontal">
                         <fa:IconImage Icon="ObjectUngroup" Style="{StaticResource menuButtonIcon}"/>
                         <TextBlock Text="Categories" Style="{StaticResource menuButtonText}"/>
@@ -83,8 +83,8 @@
         <Border Grid.Column="1" CornerRadius="0 10 10 0 ">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#41518f" Offset="0"/>
-                    <GradientStop Color="#2c386c" Offset="1"/>
+                    <GradientStop Color="#b6e0e0" Offset="0"/>
+                    <GradientStop Color="#d5eded" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
 

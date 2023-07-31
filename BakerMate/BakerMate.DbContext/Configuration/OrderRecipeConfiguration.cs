@@ -13,10 +13,10 @@ namespace BakerMate.DbContext.Configuration
     {
         public void Configure(EntityTypeBuilder<OrderRecipe> builder)
         {
-            builder.ToTable(nameof(OrderRecipe), "BKM");
-            builder.HasKey(x => new { x.OrderId, x.RecipeId });
-            builder.HasOne(x => x.Order).WithMany(x => x.Recipes).HasForeignKey(x => x.OrderId).OnDelete(DeleteBehavior.Restrict);
-            builder.HasOne(x => x.Recipe).WithMany(x => x.Orders).HasForeignKey(x => x.RecipeId).OnDelete(DeleteBehavior.Restrict);
+            builder.ToTable(nameof(OrderRecipe));
+            builder.HasKey(x => new { x.RecipeBaseCountId , x.OrderId });
+            builder.HasOne(x => x.RecipeBaseCount).WithMany(x => x.OrderRecipes).HasForeignKey(x => x.RecipeBaseCountId).OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(x => x.Order).WithMany(x => x.OrderRecipes).HasForeignKey(x => x.OrderId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -18,6 +18,8 @@ namespace BakerMate.WPF.ViewModel
             set { currentView = value; OnPropertyChanged(nameof(CurrentView)); }
         }
         public CategoryViewModel CategoryViewModel { get; set; }
+        public IngredientViewModel IngredientViewModel { get; set; }
+        public RecipesViewModel RecipeViewModel { get; set; }
         public ICommand CategoryCommand { get; set; }
         public ICommand RecipeCommand { get; set; }
         public ICommand IngredientCommand { get; set; }
@@ -28,6 +30,10 @@ namespace BakerMate.WPF.ViewModel
         {
             CategoryViewModel = new();
             CategoryCommand = new RelayCommand(x => { CurrentView = CategoryViewModel; });
+            IngredientViewModel = new();
+            IngredientCommand = new RelayCommand(x => { CurrentView = IngredientViewModel; });
+            RecipeViewModel = new();
+            RecipeCommand = new RelayCommand(x => { CurrentView = RecipeViewModel; });
         }
     }
 }

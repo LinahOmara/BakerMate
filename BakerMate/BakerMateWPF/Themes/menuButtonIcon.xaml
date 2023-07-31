@@ -8,6 +8,7 @@
         <Setter Property="Height" Value="23"/>
         <Setter Property="Margin" Value="35 0 20 0"/>
         <Setter Property="Foreground" Value="{Binding Path=Tag,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type RadioButton}}}"/>
+
     </Style>
     
 </ResourceDictionary>

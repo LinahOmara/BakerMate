@@ -10,7 +10,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/menuButton.xaml"/>
-                <ResourceDictionary Source="Themes/menuButtonActive.xaml"/>
                 <ResourceDictionary Source="Themes/menuButtonText.xaml"/>
                 <ResourceDictionary Source="Themes/menuButtonIcon.xaml"/>
             </ResourceDictionary.MergedDictionaries>
@@ -21,6 +20,15 @@
             
             <DataTemplate DataType="{x:Type vm:CategoryViewModel}">
                 <views:CategoryView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:IngredientViewModel}">
+                <views:IngredientView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:RecipesViewModel}">
+                <views:RecipesView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:BaseIngredientCountViewModel}">
+                <views:BaseIngredientCountView/>
             </DataTemplate>
 
         </ResourceDictionary>

@@ -15,8 +15,25 @@ namespace BakerMate.WPF.ViewModel
         public override void PopulateDetailList()
         {
           Category category = (Category)MasterSelectedItem;
-          DetailList = new(category.Recipes);           
+            if (category is not null)
+            {
+                if (category.Recipes is not null)
+                {
+                    DetailList = new(category.Recipes);
+                }
+            }
         }
+
+        protected override void RevertAction()
+        {
+            foreach (var item in MasterList)
+            {
+             bakerMateContext.Entry(item).CurrentValues.SetValues(bakerMateContext.Entry(item).OriginalValues);
+            }
+            MasterList.Clear();
+            MasterList = new(bakerMateContext.Set<Category>().Include(x => x.Recipes).ThenInclude(x => x.BaseIngredient).ToList());
+        }
+
         public CategoryViewModel()
         {
             List<Category> categories = bakerMateContext.Set<Category>().Include(x => x.Recipes).ThenInclude(x => x.BaseIngredient).ToList();

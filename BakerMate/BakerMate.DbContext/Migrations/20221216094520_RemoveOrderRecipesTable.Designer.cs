@@ -3,6 +3,7 @@ using System;
 using BakerMate.DbContext.Presistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BakerMate.DbContext.Migrations
 {
     [DbContext(typeof(BakerMateContext))]
-    partial class BakerMateContextModelSnapshot : ModelSnapshot
+    [Migration("20221216094520_RemoveOrderRecipesTable")]
+    partial class RemoveOrderRecipesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
@@ -89,7 +91,7 @@ namespace BakerMate.DbContext.Migrations
                     b.Property<DateTime>("OrderingDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
-                        .HasDefaultValue(new DateTime(2022, 12, 16, 11, 57, 49, 483, DateTimeKind.Local).AddTicks(9161));
+                        .HasDefaultValue(new DateTime(2022, 12, 16, 11, 45, 20, 116, DateTimeKind.Local).AddTicks(5386));
 
                     b.Property<double>("Revenue")
                         .HasColumnType("REAL");
@@ -97,21 +99,6 @@ namespace BakerMate.DbContext.Migrations
                     b.HasKey("OrderId");
 
                     b.ToTable("Order", "BKM");
-                });
-
-            modelBuilder.Entity("BakerMate.Domain.Model.OrderRecipe", b =>
-                {
-                    b.Property<int>("RecipeBaseCountId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("RecipeBaseCountId", "OrderId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("OrderRecipe", (string)null);
                 });
 
             modelBuilder.Entity("BakerMate.Domain.Model.Recipe", b =>
@@ -205,25 +192,6 @@ namespace BakerMate.DbContext.Migrations
                     b.Navigation("UnitOfMeasure");
                 });
 
-            modelBuilder.Entity("BakerMate.Domain.Model.OrderRecipe", b =>
-                {
-                    b.HasOne("BakerMate.Domain.Model.Order", "Order")
-                        .WithMany("OrderRecipes")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("BakerMate.Domain.Model.RecipeBaseCount", "RecipeBaseCount")
-                        .WithMany("OrderRecipes")
-                        .HasForeignKey("RecipeBaseCountId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("RecipeBaseCount");
-                });
-
             modelBuilder.Entity("BakerMate.Domain.Model.Recipe", b =>
                 {
                     b.HasOne("BakerMate.Domain.Model.Ingredient", "BaseIngredient")
@@ -283,21 +251,11 @@ namespace BakerMate.DbContext.Migrations
                     b.Navigation("RecipeIngredients");
                 });
 
-            modelBuilder.Entity("BakerMate.Domain.Model.Order", b =>
-                {
-                    b.Navigation("OrderRecipes");
-                });
-
             modelBuilder.Entity("BakerMate.Domain.Model.Recipe", b =>
                 {
                     b.Navigation("RecipeBaseCounts");
 
                     b.Navigation("RecipeIngredients");
-                });
-
-            modelBuilder.Entity("BakerMate.Domain.Model.RecipeBaseCount", b =>
-                {
-                    b.Navigation("OrderRecipes");
                 });
 
             modelBuilder.Entity("BakerMate.Domain.Model.UnitOfMeasure", b =>

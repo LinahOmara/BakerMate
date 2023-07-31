@@ -66,7 +66,6 @@ namespace BakerMate.WPF.ViewModel
         }
 
         public ICommand EditCommand { get; set; }
-
         public ICommand AddCommand { get; set;  }
         public ICommand CommitCommand { get; set; }
         public ICommand CopyCommand { get; set; }
@@ -74,6 +73,7 @@ namespace BakerMate.WPF.ViewModel
         public ICommand DeleteCommand { get; set; }
         
         public abstract void PopulateDetailList();
+        protected abstract void RevertAction();
 
         protected MasterDetailDataGridViewModel()
         {
@@ -102,17 +102,33 @@ namespace BakerMate.WPF.ViewModel
             (
              x =>
                 {
-                    var type = MasterList.ElementAt(0).GetType();
-                    MasterList.Clear();
-                    foreach (var item in bakerMateContext.ChangeTracker.Entries())
-                    {
-                     MasterList.Add(item.OriginalValues);                    
-                    }
+                    RevertAction();
                 }
                 , 
              x=> {return bakerMateContext.ChangeTracker.HasChanges(); }
             );
+            DeleteCommand = new RelayCommand
+                (
+                x =>
+                {
+                    bakerMateContext.Remove(MasterSelectedItem);
+                    MasterList.Remove(MasterSelectedItem);
+                }
+                ,
+                x => { return MasterSelectedItem is not null; }
+                );
+            CopyCommand = new RelayCommand
+                (
+                x =>
+                {
+                    var NewEntity = Activator.CreateInstance(MasterSelectedItem.GetType());
+                    MasterList.Add(NewEntity);
+                    bakerMateContext.Add(NewEntity);
+                    bakerMateContext.Entry(NewEntity).CurrentValues.SetValues(bakerMateContext.Entry(MasterSelectedItem).CurrentValues);
+                }
+                ,
+                x => { return MasterSelectedItem is not null; }
+                );
         }
-
     }
 }
