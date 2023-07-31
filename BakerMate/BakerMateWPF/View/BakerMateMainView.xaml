@@ -22,8 +22,8 @@
         <Border CornerRadius="10 0 0 10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#87bdbe" Offset="0"/>
-                    <GradientStop Color="#97d3d4" Offset="1"/>
+                    <GradientStop Color="#E7F1F2" Offset="0"/>
+                    <GradientStop Color="#f7fafb " Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -83,8 +83,8 @@
         <Border Grid.Column="1" CornerRadius="0 10 10 0 ">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#b6e0e0" Offset="0"/>
-                    <GradientStop Color="#d5eded" Offset="1"/>
+                    <GradientStop Color="#f0f8f8" Offset="0"/>
+                    <GradientStop Color="#F2F9F9" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
 

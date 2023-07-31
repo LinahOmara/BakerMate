@@ -53,7 +53,13 @@ namespace BakerMate.WPF.ViewModel
             if (MasterSelectedItem is not null)
             {
                 Recipe recipe = (Recipe)MasterSelectedItem;
-                DetailList = new(recipe.RecipeIngredients);
+                if (recipe is not null)
+                {
+                    if (recipe.RecipeIngredients is not null)
+                    {
+                        DetailList = new(recipe.RecipeIngredients);
+                    }
+                }
             }
         }
 
@@ -61,7 +67,12 @@ namespace BakerMate.WPF.ViewModel
 
         protected override void RevertAction()
         {
-            throw new NotImplementedException();
+            foreach (var item in MasterList)
+            {
+                bakerMateContext.Entry(item).CurrentValues.SetValues(bakerMateContext.Entry(item).OriginalValues);
+            }
+            MasterList.Clear();
+            MasterList = new(bakerMateContext.Set<Recipe>().Include(x => x.Category).Include(x => x.BaseIngredient).Include(x => x.RecipeIngredients).ThenInclude(x => x.Ingredient).Include(x => x.RecipeBaseCounts).ToList());
         }
 
         public RecipesViewModel()

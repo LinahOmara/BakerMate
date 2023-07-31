@@ -1,5 +1,6 @@
 ﻿using BakerMate.WPF.Command;
 using BakerMate.WPF.Domain;
+using BakerMate.WPF.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace BakerMate.WPF.ViewModel
         public CategoryViewModel CategoryViewModel { get; set; }
         public IngredientViewModel IngredientViewModel { get; set; }
         public RecipesViewModel RecipeViewModel { get; set; }
+        public UnitOfMeasureViewModel UnitOfMeasureViewModel { get; set; }
         public ICommand CategoryCommand { get; set; }
         public ICommand RecipeCommand { get; set; }
         public ICommand IngredientCommand { get; set; }
@@ -34,6 +36,8 @@ namespace BakerMate.WPF.ViewModel
             IngredientCommand = new RelayCommand(x => { CurrentView = IngredientViewModel; });
             RecipeViewModel = new();
             RecipeCommand = new RelayCommand(x => { CurrentView = RecipeViewModel; });
+            UnitOfMeasureViewModel = new();
+            UnitOfMeasureCommand = new RelayCommand(x => { CurrentView = UnitOfMeasureViewModel; });
         }
     }
 }

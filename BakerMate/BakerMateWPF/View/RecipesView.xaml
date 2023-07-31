@@ -117,8 +117,8 @@
             </Grid.ColumnDefinitions>
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#87bdbe" Offset="0"/>
-                    <GradientStop Color="#97d3d4" Offset="1"/>
+                    <GradientStop Color="#E7F1F2" Offset="0"/>
+                    <GradientStop Color="#f7fafb " Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
             <Label Height="30"

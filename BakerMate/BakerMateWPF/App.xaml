@@ -13,11 +13,13 @@
                 <ResourceDictionary Source="Themes/menuButtonText.xaml"/>
                 <ResourceDictionary Source="Themes/menuButtonIcon.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
+
             <DataTemplate DataType="{x:Type vm:BakerMateMainViewModel}">
                 <views:BakerMateMainView/>
             </DataTemplate>
-            
+            <DataTemplate DataType="{x:Type vm:UnitOfMeasureViewModel}">
+                <views:UnitsOfMeasureView/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type vm:CategoryViewModel}">
                 <views:CategoryView/>
             </DataTemplate>

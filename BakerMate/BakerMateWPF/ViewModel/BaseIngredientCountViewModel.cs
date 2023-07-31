@@ -1,5 +1,6 @@
 ﻿using BakerMate.DbContext.Presistance;
 using BakerMate.Domain.Model;
+using BakerMate.WPF.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -40,6 +41,16 @@ namespace BakerMate.WPF.ViewModel
             List<RecipeBaseCount> recipeBaseCount = bakerMateContext.Set<RecipeBaseCount>().Where(x => x.RecipieId == recipe.Id).ToList();
             MasterList = new(recipeBaseCount);
             Recipe = recipe;
+            AddCommand = new RelayCommand
+            (
+            x =>
+            {
+                var Entity = new RecipeBaseCount();
+                Entity.RecipieId = recipe.Id;
+                MasterList.Add(Entity);
+                bakerMateContext.Add(Entity);
+            }
+            );
         }
     }
 }
