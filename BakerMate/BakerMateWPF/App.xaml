@@ -20,6 +20,9 @@
             <DataTemplate DataType="{x:Type vm:UnitOfMeasureViewModel}">
                 <views:UnitsOfMeasureView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:RecipeIngredientViewModel}">
+                <views:RecipeIngredientView/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type vm:CategoryViewModel}">
                 <views:CategoryView/>
             </DataTemplate>

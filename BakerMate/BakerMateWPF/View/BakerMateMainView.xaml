@@ -61,7 +61,7 @@
 
                     <StackPanel Orientation="Horizontal">
                         <fa:IconImage Icon="StickyNote" Style="{StaticResource menuButtonIcon}"/>
-                        <TextBlock Text="Recipies" Style="{StaticResource menuButtonText}"/>
+                        <TextBlock Text="Recipes" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
                 </RadioButton>
                 <RadioButton Style="{StaticResource menuButton}" Command="{Binding UnitOfMeasureCommand}">

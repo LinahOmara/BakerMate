@@ -15,6 +15,7 @@ namespace BakerMate.DbContext.Configuration
         {
             builder.ToTable(nameof(RecipeIngredient), "BKM");
             builder.HasKey(x => new { x.IngredientId, x.RecipieId });
+            builder.HasOne(x => x.IngredientQuantityUnit).WithMany().HasForeignKey(x => x.UnitOfMeasureId).OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(x => x.Ingredient).WithMany(x => x.RecipeIngredients).HasForeignKey(x => x.IngredientId).OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(x => x.Recipe).WithMany(x => x.RecipeIngredients).HasForeignKey(x => x.RecipieId).OnDelete(DeleteBehavior.Restrict);
         }

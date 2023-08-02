@@ -6,7 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -15,11 +17,15 @@ namespace BakerMate.WPF.ViewModel
 {
     public class RecipesViewModel : MasterDetailDataGridViewModel
     {
-        private RecipeBaseCount RecipeBaseCountSelectedItem;
+
         private ObservableCollection<Ingredient> ingredients;
         private ObservableCollection<Category> categories;
-        private ObservableCollection<RecipeBaseCount> recipeBaseCounts;
-        public RecipeBaseCount SelectedRecipeBaseCount { get; set; }
+        private object currentView;
+        public object CurrentView
+        {
+            get { return currentView; }
+            set { currentView = value; OnPropertyChanged(nameof(CurrentView)); }
+        }
         public ObservableCollection<Ingredient> Ingredients
         {
             get => ingredients;
@@ -38,15 +44,6 @@ namespace BakerMate.WPF.ViewModel
                 OnPropertyChanged(nameof(Categories));
             }
         }
-        public ObservableCollection<RecipeBaseCount> RecipeBaseCounts
-        {
-            get => recipeBaseCounts;
-            set
-            {
-                recipeBaseCounts = value;
-                OnPropertyChanged(nameof(RecipeBaseCounts));
-            }
-        }
 
         public override void PopulateDetailList()
         {
@@ -57,12 +54,12 @@ namespace BakerMate.WPF.ViewModel
                 {
                     if (recipe.RecipeIngredients is not null)
                     {
-                        DetailList = new(recipe.RecipeIngredients);
+                        RecipeIngredientViewModel recipeIngredientViewModel = new(recipe);
+                        CurrentView = recipeIngredientViewModel;
                     }
                 }
             }
         }
-
         public ICommand BaseIngredientSizeCommand { get; set; }
 
         protected override void RevertAction()
@@ -73,6 +70,7 @@ namespace BakerMate.WPF.ViewModel
             }
             MasterList.Clear();
             MasterList = new(bakerMateContext.Set<Recipe>().Include(x => x.Category).Include(x => x.BaseIngredient).Include(x => x.RecipeIngredients).ThenInclude(x => x.Ingredient).Include(x => x.RecipeBaseCounts).ToList());
+            bakerMateContext.ChangeTracker.Clear();
         }
 
         public RecipesViewModel()

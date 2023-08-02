@@ -14,7 +14,7 @@
     </UserControl.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="400"/>
+            <RowDefinition Height="300"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -133,8 +133,14 @@
                FontSize="15">
             </Label>
         </Grid>
-
-        <DataGrid Background="Transparent" Grid.Row="2"
+        <ContentControl Grid.Row="2" Content="{Binding CurrentView}"/>
+        <!--<Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Background="Transparent" Grid.Column="0"
+                  Name="RecipeIngredient"
                   AlternatingRowBackground="#f4f6fb"  
                   AutoGenerateColumns="False" 
                   CanUserResizeColumns="False" 
@@ -143,20 +149,55 @@
                   SelectedValue="{Binding DetailSelectedItem}"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn Header=" Ingredient Name" Width="120" Binding="{Binding Ingredient.Name}"/>
-                <DataGridTextColumn Header=" Purchase Location" Width="120" Binding="{Binding Ingredient.PurchaseLocation}"/>
-                <DataGridTextColumn Header=" Ingredient Price" Width="100" Binding="{Binding Ingredient.Price}"/>
-                <DataGridTextColumn Header=" Quantity" Width="100" Binding="{Binding IngredientQuantity}"/>
+                    <DataGridTemplateColumn Header=" Ingredient Name" Width="170">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Ingredient.Name}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox
+                                            ItemsSource="{Binding Path=DataContext.Ingredients , ElementName=RecipeIngredient}"
+                                            DisplayMemberPath="Name"
+                                            SelectedItem="{Binding Ingredient}"
+                                    />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header=" Quantity" Width="100" Binding="{Binding IngredientQuantity}"/>
             </DataGrid.Columns>
-            <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="FontWeight" Value="Bold"/>
-                    <Setter Property="Background" Value="#f4f6fb"/>
-                    <Setter Property="Foreground" Value="Black"/>
-                    <Setter Property="Height" Value="30"/>
-                </Style>
-            </DataGrid.ColumnHeaderStyle>
-
-        </DataGrid>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Background" Value="#f4f6fb"/>
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Height" Value="30"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+            </DataGrid>
+            <StackPanel  Margin="0 0 0 0" Grid.Column="1" >
+                <Button BorderThickness="0"  Height="30" Width="30" Background="Transparent" Command="{Binding EditDetailCommand}">
+                    <fa:IconImage Icon="Edit" Foreground="#1e2a2a"/>
+                </Button>
+                <StackPanel Margin="0 10 0 0" Visibility="{Binding DetailEditVisability,Converter={StaticResource visibilityConverter}}">
+                    <Button Margin="0 10 0 0" Height="20" Width="20" BorderThickness="0" Background="Transparent" Command="{Binding AddDetailCommand}">
+                        <fa:IconImage Icon="plus" Foreground="Blue"/>
+                    </Button>
+                    <Button Margin="0 10 0 0" Height="20" Width="20" BorderThickness="0" Background="Transparent" Command="{Binding DeleteDetailCommand}">
+                        <fa:IconImage Icon="remove" Foreground="red"/>
+                    </Button>
+                    <Button Margin="0 10 0 0" Height="20" Width="20" BorderThickness="0" Background="Transparent" Command="{Binding CopyDetailCommand}">
+                        <fa:IconImage Icon="Copy" Foreground="Black"/>
+                    </Button>
+                    <Button Margin="0 10 0 0" Height="20" Width="20" BorderThickness="0" Background="Transparent" Command="{Binding RevertCommand}">
+                        <fa:IconImage Icon="Undo" Foreground="Orange"/>
+                    </Button>
+                    <Button Margin="0 10 0 0" Height="20" Width="20" BorderThickness="0" Background="Transparent" Command="{Binding CommitCommand}">
+                        <fa:IconImage Icon="Check" Foreground="Green"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>-->
     </Grid>
 </UserControl>
