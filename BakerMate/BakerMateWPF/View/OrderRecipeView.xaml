@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="BakerMate.WPF.View.OrderRecipeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BakerMate.WPF.View"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:viewModel="clr-namespace:BakerMate.WPF.ViewModel"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=viewModel:OrderRecipeViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="visibilityConverter"/>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Background="Transparent" Grid.Row="0"
+                  Grid.Column="0"
+                  x:Name="orderrecipe"
+                  RowBackground="#f0f8f8"
+                  AlternatingRowBackground="#f7fbfb"                
+                  HorizontalGridLinesBrush="White"
+                  VerticalGridLinesBrush="White"                 
+                  AutoGenerateColumns="False" 
+                  CanUserResizeColumns="False"
+                  CanUserAddRows="False"
+                  ItemsSource="{Binding MasterList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValue ="{Binding MasterSelectedItem}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header=" Order Recipe" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}: {1}">
+                                        <Binding Path="RecipeBaseCount.Recipe.Name"/>
+                                        <Binding Path="RecipeBaseCount.Size"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                ItemsSource="{Binding Path=DataContext.RecipeBaseCounts , ElementName=recipeingredient}"
+                                            SelectedItem="{Binding RecipeBaseCount}"
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock>
+                                            <TextBlock.Text>
+                                                <MultiBinding StringFormat="{}{0}: {1}">
+                                                    <Binding Path="Recipe.Name"/>
+                                                    <Binding Path="Size"/>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header=" Count" Binding="{Binding Count}"/>
+            </DataGrid.Columns>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Height" Value="30"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Resources>
+                <Style TargetType="ScrollBar">
+                    <Setter Property="Width" Value="8" />
+                    <Setter Property="MinWidth" Value="5" />
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+        <StackPanel Grid.Column="3">
+            <Button BorderThickness="0"  Height="30" Width="30" Background="Transparent" Command="{Binding EditCommand}">
+                <fa:IconImage Icon="Edit" Foreground="#1e2a2a"/>
+            </Button>
+            <StackPanel Margin="0 10 0 0" Visibility="{Binding EditVisability,Converter={StaticResource visibilityConverter}}">
+                <Button Margin="0 10 0 0" Height="20" Width="20" BorderThickness="0" Background="Transparent" Command="{Binding AddCommand}">
+                    <fa:IconImage Icon="plus" Foreground="Blue"/>
+                </Button>
+                <Button Margin="0 10 0 0" Height="20" Width="20" BorderThickness="0" Background="Transparent" Command="{Binding DeleteCommand}">
+                    <fa:IconImage Icon="remove" Foreground="red"/>
+                </Button>
+                <Button Margin="0 10 0 0" Height="20" Width="20" BorderThickness="0" Background="Transparent" Command="{Binding CopyCommand}">
+                    <fa:IconImage Icon="Copy" Foreground="Black"/>
+                </Button>
+                <Button Margin="0 10 0 0" Height="20" Width="20" BorderThickness="0" Background="Transparent" Command="{Binding RevertCommand}">
+                    <fa:IconImage Icon="Undo" Foreground="Orange"/>
+                </Button>
+                <Button Margin="0 10 0 0" Height="20" Width="20" BorderThickness="0" Background="Transparent" Command="{Binding CommitCommand}">
+                    <fa:IconImage Icon="Check" Foreground="Green"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

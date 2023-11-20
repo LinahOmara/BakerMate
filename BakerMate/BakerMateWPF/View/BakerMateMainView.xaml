@@ -90,11 +90,10 @@
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <ContentControl Grid.Row="2" Content="{Binding CurrentView}"/>
+                <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
             </Grid>
         </Border>
     </Grid>

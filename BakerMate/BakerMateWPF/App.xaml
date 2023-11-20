@@ -35,6 +35,9 @@
             <DataTemplate DataType="{x:Type vm:BaseIngredientCountViewModel}">
                 <views:BaseIngredientCountView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:OrdersViewModel}">
+                <views:OrderView/>
+            </DataTemplate>
 
         </ResourceDictionary>
     </Application.Resources>

@@ -14,7 +14,7 @@ namespace BakerMate.DbContext.Configuration
         public void Configure(EntityTypeBuilder<Order> builder)
         {
             builder.ToTable(nameof(Order), "BKM");
-            builder.Property(x => x.OrderingDate).HasDefaultValue(DateTime.Now);
+            builder.Property(x => x.OrderingDate).HasDefaultValue(DateOnly.FromDateTime(DateTime.Now));
         }
     }
 }

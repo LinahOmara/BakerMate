@@ -10,7 +10,8 @@ namespace BakerMate.Domain.Model
     {
         public int RecipeBaseCountId { get; set; }
         public int OrderId { get; set; }
+        public int Count { get; set; }
         public RecipeBaseCount RecipeBaseCount { get; set; }
-        public Order Order { get; set; }
+        public Order Order { get; set;}
     }
 }

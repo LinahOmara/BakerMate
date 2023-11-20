@@ -13,7 +13,7 @@ namespace BakerMate.DbContext.Presistance
         public BakerMateContext CreateDbContext(string[] args = null)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BakerMateContext>();
-            optionsBuilder.UseSqlite("data source= C:\\Users\\Administrator\\Desktop\\Work\\BakerMate.sqlite");
+            optionsBuilder.UseSqlite("data source= D:\\Work\\BakerMate.sqlite");
             return new BakerMateContext(optionsBuilder.Options);
         }
     }

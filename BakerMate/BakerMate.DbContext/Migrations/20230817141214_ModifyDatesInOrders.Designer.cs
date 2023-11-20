@@ -3,6 +3,7 @@ using System;
 using BakerMate.DbContext.Presistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BakerMate.DbContext.Migrations
 {
     [DbContext(typeof(BakerMateContext))]
-    partial class BakerMateContextModelSnapshot : ModelSnapshot
+    [Migration("20230817141214_ModifyDatesInOrders")]
+    partial class ModifyDatesInOrders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
@@ -86,7 +88,7 @@ namespace BakerMate.DbContext.Migrations
                     b.Property<DateOnly>("OrderingDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
-                        .HasDefaultValue(new DateOnly(2023, 8, 17));
+                        .HasDefaultValue(new DateOnly(1, 1, 1));
 
                     b.Property<double>("Price")
                         .HasColumnType("REAL");

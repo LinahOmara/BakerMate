@@ -3,6 +3,7 @@ using System;
 using BakerMate.DbContext.Presistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BakerMate.DbContext.Migrations
 {
     [DbContext(typeof(BakerMateContext))]
-    partial class BakerMateContextModelSnapshot : ModelSnapshot
+    [Migration("20230816200936_Add_Count_OrderRecipeTable")]
+    partial class Add_Count_OrderRecipeTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
@@ -76,17 +78,17 @@ namespace BakerMate.DbContext.Migrations
                     b.Property<bool>("Delivered")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateOnly>("DeliveryDate")
+                    b.Property<DateTime>("DeliveryDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("OrderDescription")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateOnly>("OrderingDate")
+                    b.Property<DateTime>("OrderingDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
-                        .HasDefaultValue(new DateOnly(2023, 8, 17));
+                        .HasDefaultValue(new DateTime(2023, 8, 16, 23, 9, 35, 814, DateTimeKind.Local).AddTicks(5975));
 
                     b.Property<double>("Price")
                         .HasColumnType("REAL");
