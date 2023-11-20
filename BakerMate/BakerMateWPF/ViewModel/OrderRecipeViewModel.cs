@@ -1,6 +1,7 @@
 ﻿using BakerMate.DbContext.Presistance;
 using BakerMate.Domain.Model;
 using BakerMate.WPF.Command;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -51,9 +52,10 @@ namespace BakerMate.WPF.ViewModel
 
         public OrderRecipeViewModel(Order order)
         {
-            List<OrderRecipe> orderRecipes = bakerMateContext.Set<OrderRecipe>().Where(x => x.OrderId == order.OrderId).ToList();
-            List<RecipeBaseCount> recipeBaseCounts = bakerMateContext.Set<RecipeBaseCount>().ToList();
+            List<OrderRecipe> orderRecipes = bakerMateContext.Set<OrderRecipe>().Where(x => x.OrderId == order.OrderId).Include(x=>x.RecipeBaseCount).ToList();
+            List<RecipeBaseCount> recipeBaseCounts = bakerMateContext.Set<RecipeBaseCount>().Include(x=>x.Recipe).ToList();
             MasterList = new(orderRecipes);
+            RecipeBaseCounts = new(recipeBaseCounts);
             Order = order;
             AddCommand = new RelayCommand
             (

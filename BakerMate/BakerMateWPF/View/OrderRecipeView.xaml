@@ -31,29 +31,29 @@
                   ItemsSource="{Binding MasterList, UpdateSourceTrigger=PropertyChanged}"
                   SelectedValue ="{Binding MasterSelectedItem}">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header=" Order Recipe" Width="150">
+                <DataGridTemplateColumn Header=" Recipe" Width="150">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock>
-                                <TextBlock.Text>
-                                    <MultiBinding StringFormat="{}{0}: {1}">
+                            <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}  : {1}">
                                         <Binding Path="RecipeBaseCount.Recipe.Name"/>
                                         <Binding Path="RecipeBaseCount.Size"/>
-                                    </MultiBinding>
-                                </TextBlock.Text>
+                                </MultiBinding>
+                            </TextBlock.Text>
                             </TextBlock>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                     <DataGridTemplateColumn.CellEditingTemplate>
                         <DataTemplate>
-                            <ComboBox>
-                                ItemsSource="{Binding Path=DataContext.RecipeBaseCounts , ElementName=recipeingredient}"
-                                            SelectedItem="{Binding RecipeBaseCount}"
+                            <ComboBox ItemsSource="{Binding Path=DataContext.RecipeBaseCounts, ElementName=orderrecipe}"
+                                      SelectedItem="{Binding RecipeBaseCount}"
+                                      >
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock>
                                             <TextBlock.Text>
-                                                <MultiBinding StringFormat="{}{0}: {1}">
+                                                <MultiBinding StringFormat="{}{0}  : {1}">
                                                     <Binding Path="Recipe.Name"/>
                                                     <Binding Path="Size"/>
                                                 </MultiBinding>

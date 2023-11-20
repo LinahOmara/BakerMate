@@ -39,6 +39,10 @@
                 <views:OrderView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type vm:OrderRecipeViewModel}">
+                <views:OrderRecipeView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

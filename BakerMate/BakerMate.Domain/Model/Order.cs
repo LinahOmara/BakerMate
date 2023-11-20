@@ -12,8 +12,9 @@ namespace BakerMate.Domain.Model
         public string Customer { get; set; }
         public string CustomerNumber { get; set; }
         public string OrderDescription { get; set; }
-        public DateOnly OrderingDate { get; set; }
-        public DateOnly DeliveryDate { get; set; }
+        public DateTime OrderingDate  { get; set; }
+        
+        public DateTime DeliveryDate { get; set; }
         public bool Delivered { get; set; }
         public double Price { get; set; }
         public double Revenue { get; set; }

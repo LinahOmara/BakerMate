@@ -46,7 +46,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                         <DataGridTemplateColumn.CellEditingTemplate>
                             <DataTemplate>
-                                <DatePicker SelectedDateFormat="Long" SelectedDate ="{Binding OrderingDate}"
+                                <DatePicker SelectedDateFormat="Long" SelectedDate ="{Binding OrderingDate}"                                           
                                     FirstDayOfWeek="Sunday"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellEditingTemplate>
@@ -121,7 +121,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <Label Height="30"
-               Content="Ingredients:" 
+               Content="Recipes:" 
                FontWeight="Bold"              
                Foreground="Black"
                FontSize="15"/>

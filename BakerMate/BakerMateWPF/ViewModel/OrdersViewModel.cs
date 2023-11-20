@@ -55,6 +55,17 @@ namespace BakerMate.WPF.ViewModel
         {
             List<Order> orders = bakerMateContext.Set<Order>().Include(x=>x.OrderRecipes).ToList();
             MasterList = new(orders);
+            AddCommand = new RelayCommand
+                (
+                x =>
+                {
+                    Order Entity = new();
+                    Entity.OrderingDate = DateTime.Now;
+                    Entity.DeliveryDate = DateTime.Now;
+                    MasterList.Add(Entity);
+                    bakerMateContext.Add(Entity);
+                }
+                );
         }
     }
 }
