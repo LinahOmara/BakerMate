@@ -14,7 +14,11 @@ namespace BakerMate.DbContext.Configuration
         public void Configure(EntityTypeBuilder<Ingredient> builder)
         {
             builder.ToTable(nameof(Ingredient), "BKM");
-            builder.HasOne(x => x.UnitOfMeasure).WithMany(x=>x.Ingredients).HasForeignKey(x => x.UnitOfMeasureId).OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.UnitOfMeasure)
+                .WithMany(x=>x.Ingredients)
+                .HasForeignKey(x => x.UnitOfMeasureId)
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
     }
