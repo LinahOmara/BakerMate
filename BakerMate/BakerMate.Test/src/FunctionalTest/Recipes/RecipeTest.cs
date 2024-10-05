@@ -67,34 +67,30 @@ namespace BakerMate.FunctionalTest.Recipes
             };
 
         [Theory]
-        [MemberData(nameof(AddIngrediantToRecipe_Data))]
-        public async Task AddIngrediantToRecipe(int id, int ingrediantId)
+        [MemberData(nameof(AddIngredientToRecipe_Data))]
+        public async Task AddIngredientToRecipe(int id, int ingredientId)
         {
             // Act
-            int result = await _service.AddIngrediantToRecipe(id, ingrediantId);
+            int result = await _service.AddIngredientToRecipe(id, ingredientId);
 
             // Assert
             Assert.NotNull(result);
         }
 
-        public static IEnumerable<object[]> AddIngrediantToRecipe_Data =>
+        public static IEnumerable<object[]> AddIngredientToRecipe_Data =>
             new List<object[]>
             {
                 new object[] { },
             };
 
         [Theory]
-        [MemberData(nameof(DeleteIngrediantFromRecipe_Data))]
-        public async Task DeleteIngrediantFromRecipe(int id, int ingrediantId)
+        [MemberData(nameof(DeleteIngredientFromRecipe_Data))]
+        public async Task DeleteIngredientFromRecipe(int id, int ingredientId)
         {
-            // Act
-            int result = await _service.DeleteIngrediantFromRecipe(id, ingrediantId);
-
-            // Assert
-            Assert.NotNull(result);
+            await _service.DeleteIngredientFromRecipe(id, ingredientId);
         }
 
-        public static IEnumerable<object[]> DeleteIngrediantFromRecipe_Data =>
+        public static IEnumerable<object[]> DeleteIngredientFromRecipe_Data =>
             new List<object[]>
             {
                 new object[] { },
@@ -121,7 +117,7 @@ namespace BakerMate.FunctionalTest.Recipes
         public async Task GetNames()
         {
             // Act
-            RecipeNameDto result = await _service.GetNames();
+            IEnumerable<RecipeNameDto> result = await _service.GetNames();
 
             // Assert
             Assert.NotNull(result);

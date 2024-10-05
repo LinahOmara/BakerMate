@@ -4,6 +4,7 @@
  * Licensed Material - Property of Baker Mate.
  */
 
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BakerMate.Services.Recipes
@@ -27,12 +28,12 @@ namespace BakerMate.Services.Recipes
             throw new System.NotImplementedException();
         }
 
-        public async Task<int> AddIngrediantToRecipe(int id, int ingrediantId)
+        public async Task<int> AddIngredientToRecipe(int id, int ingredientId)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<int> DeleteIngrediantFromRecipe(int id, int ingrediantId)
+        public async Task DeleteIngredientFromRecipe(int id, int ingredientId)
         {
             throw new System.NotImplementedException();
         }
@@ -42,7 +43,7 @@ namespace BakerMate.Services.Recipes
             return await _repository.Get(recipeId);
         }
 
-        public async Task<RecipeNameDto> GetNames()
+        public async Task<IEnumerable<RecipeNameDto>> GetNames()
         {
             return await _repository.GetNames();
         }

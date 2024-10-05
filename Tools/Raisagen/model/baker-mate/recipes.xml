@@ -23,16 +23,16 @@
 
           <!--
           -->
-          <operation id="add-ingrediant-to-recipe" output="int" uri="api/recipe/{id}/ingrediant" method="post" bridge="false" >
+          <operation id="add-ingredient-to-recipe" output="int" uri="api/recipe/{id}/ingredient" method="post" bridge="false" >
             <param id="id" type="int" />
-            <param id="ingrediant-id" type="int" />
+            <param id="ingredient-id" type="int" />
           </operation>
 
           <!--
           -->
-          <operation id="delete-ingrediant-from-recipe" output="int" uri="api/recipe/{id}/ingrediant" method="delete" bridge="false" >
+          <operation id="delete-ingredient-from-recipe" output="void" uri="api/recipe/{id}/ingrediant" method="delete" bridge="false" >
             <param id="id" type="int" />
-            <param id="ingrediant-id" type="int" />
+            <param id="ingredient-id" type="int" />
           </operation>
 
           <!--
@@ -44,7 +44,7 @@
           <!--
             Get Recipies full name : RecipeName + Amount + AmountUnit
           -->
-          <operation id="get-names" output="recipe-name-dto" uri="api/recipe/name" method="get" bridge="true" />
+          <operation id="get-names" output="recipe-name-dto{}" uri="api/recipe/name" method="get" bridge="true" />
 
         </service>
 
@@ -65,7 +65,7 @@
           <!--
             Get Recipies full name : RecipeName + Amount + AmountUnit
           -->
-          <operation id="get-recipe-full-name" output="recipe-name-dto" uri="api/recipe/name" method="get" bridge="true" />
+          <operation id="get-recipe-full-name" output="recipe-name-dto{}" uri="api/recipe/name" method="get" bridge="true" />
 
         </service>
       
@@ -92,7 +92,7 @@
           <!--
             Get Recipies full name : RecipeName + Amount + AmountUnit
           -->
-          <operation id="get-recipe-full-name" output="recipe-name-dto" />
+          <operation id="get-recipe-full-name{}" output="recipe-name-dto" />
 
         </repository>
 
@@ -112,16 +112,14 @@
 
           <!--
           -->
-          <operation id="add-ingrediant-to-recipe" output="int" >
-            <param id="id" type="int" />
-            <param id="ingrediant-id" type="int" />
+          <operation id="add-ingredient-to-recipe" output="int" >
+            <param id="recipe-ingredient" type="BakerMate.Domain.Model.recipe-ingredient" />
           </operation>
 
           <!--
           -->
-          <operation id="delete-ingrediant-from-recipe" output="int" uri="api/recipe/{id}/ingrediant" method="delete" bridge="false" >
-            <param id="id" type="int" />
-            <param id="ingrediant-id" type="int" />
+          <operation id="delete-ingredient-from-recipe" output="void" >
+            <param id="recipe-ingredient" type="BakerMate.Domain.Model.recipe-ingredient" />
           </operation>
 
           <!--
@@ -133,7 +131,7 @@
           <!--
             Get Recipies full name : RecipeName + Amount + AmountUnit
           -->
-          <operation id="get-names" output="recipe-name-dto" />
+          <operation id="get-names" output="recipe-name-dto{}" />
 
 
         </repository>

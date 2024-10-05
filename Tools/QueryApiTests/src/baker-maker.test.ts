@@ -32,11 +32,11 @@ app('baker-maker', async ctx => {
       operation(ctx, 'CreateRecipeAmount', '/api/recipe/amount', [
         { _query: { newRecipeAmount: 'RecipeDto' }  }
       ])
-      operation(ctx, 'AddIngrediantToRecipe', '/api/recipe/{id}/ingrediant', [
-        { id: 0, _query: { ingrediantId: 0 }  }
+      operation(ctx, 'AddIngredientToRecipe', '/api/recipe/{id}/ingredient', [
+        { id: 0, _query: { ingredientId: 0 }  }
       ])
-      operation(ctx, 'DeleteIngrediantFromRecipe', '/api/recipe/{id}/ingrediant', [
-        { id: 0, _query: { ingrediantId: 0 }  }
+      operation(ctx, 'DeleteIngredientFromRecipe', '/api/recipe/{id}/ingrediant', [
+        { id: 0, _query: { ingredientId: 0 }  }
       ])
       operation(ctx, 'Get', '/api/recipe/{id}', [
         { _query: { recipeId: 0 }  }

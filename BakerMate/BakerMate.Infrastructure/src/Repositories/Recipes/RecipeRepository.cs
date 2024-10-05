@@ -4,8 +4,14 @@
  * Licensed Material - Property of Baker Mate.
  */
 
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using BakerMate.DbContext.Presistance;
+using BakerMate.Domain.Model;
+using BakerMate.Services.Ingredients;
 using BakerMate.Services.Recipes;
+using Microsoft.EntityFrameworkCore;
 
 namespace BakerMate.Repositories.Recipes
 {
@@ -17,7 +23,18 @@ namespace BakerMate.Repositories.Recipes
 
         public async Task<int> Create(RecipeDto newRecipe)
         {
-            throw new System.NotImplementedException();
+            var recipe = new Recipe()
+            {
+                Name = newRecipe.Name,
+                RecipeIngredients = newRecipe.Ingredients.Select(i => new RecipeIngredient
+                {
+                    IngredientId = i.Id,
+                    // fill rest of data 
+                }).ToList(),
+            };
+
+            return (await new BaseRepository<Recipe>()
+                .InsertAsync(recipe)).Id;
         }
 
         public async Task<int> CreateRecipeAmount(RecipeDto newRecipeAmount)
@@ -25,24 +42,47 @@ namespace BakerMate.Repositories.Recipes
             throw new System.NotImplementedException();
         }
 
-        public async Task<int> AddIngrediantToRecipe(int id, int ingrediantId)
+        public async Task<int> AddIngredientToRecipe(RecipeIngredient recipeIngredient)
         {
-            throw new System.NotImplementedException();
+            return 0; // await new BaseRepository<RecipeIngredient>()
+                //.InsertAsync(recipeIngredient);
         }
 
-        public async Task<int> DeleteIngrediantFromRecipe(int id, int ingrediantId)
+        public async Task DeleteIngredientFromRecipe(RecipeIngredient recipeIngredient)
         {
-            throw new System.NotImplementedException();
+            await new BaseRepository<RecipeIngredient>()
+                .DeleteAsync(recipeIngredient);
         }
 
         public async Task<RecipeDto> Get(int recipeId)
         {
-            throw new System.NotImplementedException();
+            return await new BaseRepository<Recipe>()
+                .GetAll(r => r.Id == recipeId)
+                .Select(r => new RecipeDto()
+                { 
+                    Id = r.Id,
+                    Name = r.Name,
+                    Ingredients = r.RecipeIngredients.Select(i => new IngredientDto
+                    {
+                        Id = i.IngredientId,
+                        Name = i.Ingredient.Name,
+                        Price = i.Ingredient.Price,
+                        UnitOfMeasure = i.Ingredient.UnitOfMeasure.Name
+                    }).ToList(),
+                })
+                .SingleOrDefaultAsync();
         }
 
-        public async Task<RecipeNameDto> GetNames()
+        public async Task<IEnumerable<RecipeNameDto>> GetNames()
         {
-            throw new System.NotImplementedException();
+            return await new BaseRepository<Recipe>()
+                .GetAll()
+                .Select(r => new RecipeNameDto()
+                {
+                    Id = r.Id,
+                    Name = r.Name
+                })
+                .ToListAsync();
         }
     }
 }

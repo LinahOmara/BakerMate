@@ -4,6 +4,7 @@
  * Licensed Material - Property of Baker Mate.
  */
 
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BakerMate.Services.Recipes
@@ -27,7 +28,7 @@ namespace BakerMate.Services.Recipes
             return await _repository.GetByRecipeId(id);
         }
 
-        public async Task<RecipeNameDto> GetRecipeFullName()
+        public async Task<IEnumerable<RecipeNameDto>> GetRecipeFullName()
         {
             return await _repository.GetRecipeFullName();
         }

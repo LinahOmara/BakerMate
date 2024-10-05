@@ -12,8 +12,8 @@ namespace BakerMate.Domain.Model
         public string Name { get; set; }
         public int BaseIngredientId { get; set; }
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
-        public Ingredient BaseIngredient { get; set; }
+        public Category Category { get; set; } // TODO: remove ?
+        public Ingredient BaseIngredient { get; set; } // TODO: remove ?
         public List<RecipeIngredient> RecipeIngredients { get; set;}
         public List<RecipeBaseCount> RecipeBaseCounts { get; set; }
 

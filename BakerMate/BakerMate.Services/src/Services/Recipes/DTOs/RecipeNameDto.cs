@@ -8,5 +8,7 @@ namespace BakerMate.Services.Recipes
 {
     public class RecipeNameDto
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

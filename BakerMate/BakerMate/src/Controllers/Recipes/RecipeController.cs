@@ -4,6 +4,7 @@
  * Licensed Material - Property of Baker Mate.
  */
 
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BakerMate.Services.Recipes;
@@ -34,18 +35,18 @@ namespace BakerMate.Controllers.Recipes
             return Ok(result);
         }
 
-        [HttpPost, Route("api/recipe/{id}/ingrediant")]
-        public async Task<ActionResult<int>> AddIngrediantToRecipe(int id, int ingrediantId)
+        [HttpPost, Route("api/recipe/{id}/ingredient")]
+        public async Task<ActionResult<int>> AddIngredientToRecipe(int id, int ingredientId)
         {
-            int result = await _service.AddIngrediantToRecipe(id, ingrediantId);
+            int result = await _service.AddIngredientToRecipe(id, ingredientId);
             return Ok(result);
         }
 
         [HttpDelete, Route("api/recipe/{id}/ingrediant")]
-        public async Task<ActionResult<int>> DeleteIngrediantFromRecipe(int id, int ingrediantId)
+        public async Task<ActionResult> DeleteIngredientFromRecipe(int id, int ingredientId)
         {
-            int result = await _service.DeleteIngrediantFromRecipe(id, ingrediantId);
-            return Ok(result);
+            await _service.DeleteIngredientFromRecipe(id, ingredientId);
+            return Ok();
         }
 
         [HttpGet, Route("api/recipe/{id}")]
@@ -56,9 +57,9 @@ namespace BakerMate.Controllers.Recipes
         }
 
         [HttpGet, Route("api/recipe/name")]
-        public async Task<ActionResult<RecipeNameDto>> GetNames()
+        public async Task<ActionResult<IEnumerable<RecipeNameDto>>> GetNames()
         {
-            RecipeNameDto result = await _service.GetNames();
+            IEnumerable<RecipeNameDto> result = await _service.GetNames();
             return Ok(result);
         }
     }

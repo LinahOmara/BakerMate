@@ -25,7 +25,7 @@ namespace BakerMate.Repositories.Recipes
             throw new System.NotImplementedException();
         }
 
-        public async Task<RecipeNameDto> GetRecipeFullName()
+        public async Task<RecipeNameDto> GetRecipeFullName{}()
         {
             throw new System.NotImplementedException();
         }

@@ -4,6 +4,7 @@
  * Licensed Material - Property of Baker Mate.
  */
 
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BakerMate.Services.Recipes
@@ -14,12 +15,12 @@ namespace BakerMate.Services.Recipes
 
         Task<int> CreateRecipeAmount(RecipeDto newRecipeAmount);
 
-        Task<int> AddIngrediantToRecipe(int id, int ingrediantId);
+        Task<int> AddIngredientToRecipe(int id, int ingredientId);
 
-        Task<int> DeleteIngrediantFromRecipe(int id, int ingrediantId);
+        Task DeleteIngredientFromRecipe(int id, int ingredientId);
 
         Task<RecipeDto> Get(int recipeId);
 
-        Task<RecipeNameDto> GetNames();
+        Task<IEnumerable<RecipeNameDto>> GetNames();
     }
 }

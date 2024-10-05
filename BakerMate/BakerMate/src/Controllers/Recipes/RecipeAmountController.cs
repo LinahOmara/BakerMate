@@ -4,6 +4,7 @@
  * Licensed Material - Property of Baker Mate.
  */
 
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BakerMate.Services.Recipes;
@@ -35,9 +36,9 @@ namespace BakerMate.Controllers.Recipes
         }
 
         [HttpGet, Route("api/recipe/name")]
-        public async Task<ActionResult<RecipeNameDto>> GetRecipeFullName()
+        public async Task<ActionResult<IEnumerable<RecipeNameDto>>> GetRecipeFullName()
         {
-            RecipeNameDto result = await _service.GetRecipeFullName();
+            IEnumerable<RecipeNameDto> result = await _service.GetRecipeFullName();
             return Ok(result);
         }
     }
