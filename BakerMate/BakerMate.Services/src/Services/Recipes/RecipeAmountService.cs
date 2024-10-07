@@ -30,7 +30,8 @@ namespace BakerMate.Services.Recipes
 
         public async Task<IEnumerable<RecipeNameDto>> GetRecipeFullName()
         {
-            return await _repository.GetRecipeFullName();
+            //return await _repository.GetRecipeFullName();
+            throw new System.Exception();
         }
     }
 }

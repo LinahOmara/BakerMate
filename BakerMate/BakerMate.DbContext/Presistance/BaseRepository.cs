@@ -1,4 +1,4 @@
-﻿using FastMember;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -161,56 +161,47 @@ namespace BakerMate.DbContext.Presistance
             return new PaginationList<U>(items, count);
         }
 
-        public async Task<PaginationList<U>> Paginate<U>(SqlKata.Query source, int pageNumber, int pageSize)
-        {
-            var items = pageNumber < 1 ? await source.Clone().GetAsync<U>() : await source.Clone().Skip((pageNumber - 1) * pageSize).Take(pageSize).GetAsync<U>();
-            var count = await source
-                .Clone()
-                .AsCount()
-                .FirstAsync<int>();
+        
 
-            return new PaginationList<U>(items, count);
-        }
+        //public async Task BulkInsertAll(IEnumerable<T> entities, List<string> ignoredCols = null)
+        //{
+        //    if (!entities.Any())
+        //    {
+        //        return;
+        //    }
 
-        public async Task BulkInsertAll(IEnumerable<T> entities, List<string> ignoredCols = null)
-        {
-            if (!entities.Any())
-            {
-                return;
-            }
+        //    Type t = typeof(T);
+        //    var columns = new List<string>();
+        //    try
+        //    {
+        //        columns = _dbContext.Model.FindEntityType(t.FullName).GetProperties().Select(p => p.Name).ToList();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw new Exception($"Failed to get columns of Table {t.FullName}");
+        //    }
 
-            Type t = typeof(T);
-            var columns = new List<string>();
-            try
-            {
-                columns = _dbContext.Model.FindEntityType(t.FullName).GetProperties().Select(p => p.Name).ToList();
-            }
-            catch (Exception)
-            {
-                throw new Exception($"Failed to get columns of Table {t.FullName}");
-            }
+        //    if (ignoredCols != null && ignoredCols.Count > 0)
+        //        columns = columns.Except(ignoredCols).ToList();
 
-            if (ignoredCols != null && ignoredCols.Count > 0)
-                columns = columns.Except(ignoredCols).ToList();
+        //    //using (var bulkCopy = _dbContext.Database.CurrentTransaction == null ? new SqlBulkCopy(_dbContext.Database.GetConnectionString()) : new SqlBulkCopy(_dbContext.Database.GetConnectionString(), SqlBulkCopyOptions.UseInternalTransaction))
+        //    {
+        //        bulkCopy.DestinationTableName = t.Name;
+        //        foreach (var col in columns)
+        //        {
+        //            if (col == "PeriodStart" || col == "PeriodEnd")
+        //                continue;
+        //            bulkCopy.ColumnMappings.Add(col, col);
+        //        }
 
-            using (var bulkCopy = _dbContext.Database.CurrentTransaction == null ? new SqlBulkCopy(_dbContext.Database.GetConnectionString()) : new SqlBulkCopy(_dbContext.Database.GetConnectionString(), SqlBulkCopyOptions.UseInternalTransaction))
-            {
-                bulkCopy.DestinationTableName = t.Name;
-                foreach (var col in columns)
-                {
-                    if (col == "PeriodStart" || col == "PeriodEnd")
-                        continue;
-                    bulkCopy.ColumnMappings.Add(col, col);
-                }
+        //        using (var reader = ObjectReader.Create(entities))
+        //        {
+        //            DataTable table = new DataTable();
+        //            table.Load(reader);
 
-                using (var reader = ObjectReader.Create(entities))
-                {
-                    DataTable table = new DataTable();
-                    table.Load(reader);
-
-                    await bulkCopy.WriteToServerAsync(table.CreateDataReader());
-                }
-            }
-        }
+        //            await bulkCopy.WriteToServerAsync(table.CreateDataReader());
+        //        }
+        //    }
+        //}
     }
 }
