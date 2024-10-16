@@ -11,7 +11,7 @@ using BakerMate.DbContext.Presistance;
 using BakerMate.Domain.Model;
 using BakerMate.Services.Ingredients;
 using BakerMate.Services.Recipes;
-using BakerMate.Services.src.Services.Recipes.DTOs;
+using BakerMate.Services.Recipes.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace BakerMate.Repositories.Recipes
@@ -40,9 +40,15 @@ namespace BakerMate.Repositories.Recipes
                 .InsertAsync(recipe)).Id;
         }
 
-        public async Task<int> CreateRecipeAmount(RecipeDto newRecipeAmount)
+        public async Task<int> CreateRecipeSize(RecipeSizeDto newRecipeAmount)
         {
-            throw new System.NotImplementedException();
+            var RecipeSize = new RecipeSize()
+            {
+                RecipieId = newRecipeAmount.RecipieId,
+                Multiplier = newRecipeAmount.Multiplier,
+                OutputWeight = newRecipeAmount.OutputWeight
+            };
+            return (await new BaseRepository<RecipeSize>().InsertAsync(RecipeSize)).Id;
         }
 
         public async Task<int> AddIngredientToRecipe(RecipeIngredientDto recipeIngredientDto)
@@ -119,5 +125,6 @@ namespace BakerMate.Repositories.Recipes
             return (await new BaseRepository<Recipe>()
                 .UpdateAsync(recipe)).Id;
         }
+
     }
 }

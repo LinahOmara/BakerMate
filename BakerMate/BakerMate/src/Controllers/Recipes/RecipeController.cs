@@ -29,10 +29,10 @@ namespace BakerMate.Controllers.Recipes
             return Ok(result);
         }
 
-        [HttpPost, Route("api/recipe/amount")]
-        public async Task<ActionResult<int>> CreateRecipeAmount(RecipeDto newRecipeAmount)
+        [HttpPost, Route("api/recipe/size")]
+        public async Task<ActionResult<int>> CreateRecipeSize(RecipeSizeDto newRecipeSize)
         {
-            int result = await _service.CreateRecipeAmount(newRecipeAmount);
+            int result = await _service.CreateRecipeSize(newRecipeSize);
             return Ok(result);
         }
 

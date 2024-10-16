@@ -24,9 +24,9 @@ namespace BakerMate.Services.Recipes
             return await _repository.Create(newRecipe);
         }
 
-        public async Task<int> CreateRecipeAmount(RecipeDto newRecipeAmount)
+        public async Task<int> CreateRecipeSize(RecipeSizeDto newRecipeSize)
         {
-            throw new System.NotImplementedException();
+            return await _repository.CreateRecipeSize(newRecipeSize);
         }
 
         public async Task<int> AddIngredientToRecipe(RecipeIngredientDto recipeIngredientDto)

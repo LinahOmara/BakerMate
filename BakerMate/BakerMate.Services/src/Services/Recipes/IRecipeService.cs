@@ -14,7 +14,7 @@ namespace BakerMate.Services.Recipes
     {
         Task<int> Create(RecipeDto newRecipe);
 
-        Task<int> CreateRecipeAmount(RecipeDto newRecipeAmount);
+        Task<int> CreateRecipeSize(RecipeSizeDto newRecipeSize);
 
         Task<int> AddIngredientToRecipe(RecipeIngredientDto recipeIngredient);
 

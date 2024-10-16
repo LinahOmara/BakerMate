@@ -17,8 +17,8 @@
 
           <!--
           -->
-          <operation id="create-recipe-amount" output="int" uri="api/recipe/amount" method="post" bridge="false" >
-            <param id="new-recipe-amount" type="recipe-dto" />
+          <operation id="create-recipe-size" output="int" uri="api/recipe/size" method="post" bridge="false" >
+            <param id="new-recipe-size" type="recipe-size-dto" />
           </operation>
 
           <!--
@@ -105,8 +105,8 @@
 
           <!--
           -->
-          <operation id="create-recipe-amount" output="int" >
-            <param id="new-recipe-amount" type="recipe-dto" />
+          <operation id="create-recipe-size" output="int" >
+            <param id="new-recipe-amount" type="recipe-size-dto" />
           </operation>
 
           <!--
@@ -115,7 +115,7 @@
             <param id="recipe-ingredient" type="recipe-ingredient-dto" />
           </operation>
 		  
-		  <operation id="update" output="void" >
+		  <operation id="update" output="int" >
             <param id="updated-recipe" type="recipe-dto" />
           </operation>
 
@@ -157,7 +157,7 @@
 
         <!---
         -->
-        <type id="recipe-amount-dto" />
+        <type id="recipe-size-dto" />
 		
 		<!---
         -->
