@@ -11,25 +11,28 @@ using BakerMate.DbContext.Presistance;
 using BakerMate.Domain.Model;
 using BakerMate.Services.Ingredients;
 using BakerMate.Services.Recipes;
+using BakerMate.Services.src.Services.Recipes.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace BakerMate.Repositories.Recipes
 {
     internal class RecipeRepository : RepositoryBase, IRecipeRepository
     {
-        public RecipeRepository()
+        private readonly BakerMateContext _dbContext;
+        public RecipeRepository(BakerMateContext dbContext)
         {
+            _dbContext = dbContext;
         }
 
         public async Task<int> Create(RecipeDto newRecipe)
         {
             var recipe = new Recipe()
             {
-                Name = newRecipe.Name,
+                Name = newRecipe.Name,    
+                Description = newRecipe.Description,
                 RecipeIngredients = newRecipe.Ingredients.Select(i => new RecipeIngredient
                 {
-                    IngredientId = i.Id,
-                    // fill rest of data 
+                    IngredientId = i.Id 
                 }).ToList(),
             };
 
@@ -42,14 +45,22 @@ namespace BakerMate.Repositories.Recipes
             throw new System.NotImplementedException();
         }
 
-        public async Task<int> AddIngredientToRecipe(RecipeIngredient recipeIngredient)
+        public async Task<int> AddIngredientToRecipe(RecipeIngredientDto recipeIngredientDto)
         {
-            return 0; // await new BaseRepository<RecipeIngredient>()
-                //.InsertAsync(recipeIngredient);
+            var recipeIngredient = new RecipeIngredient()
+            {
+                RecipieId = recipeIngredientDto.RecipieId,
+                IngredientId = recipeIngredientDto.IngredientId,
+                IngredientQuantity = recipeIngredientDto.IngredientQuantity,
+                UnitOfMeasureId = recipeIngredientDto.UnitOfMeasureId
+            };
+           return (await new BaseRepository<RecipeIngredient>().InsertAsync(recipeIngredient)).IngredientId;
         }
 
-        public async Task DeleteIngredientFromRecipe(RecipeIngredient recipeIngredient)
+        public async Task DeleteIngredientFromRecipe(RecipeIngredientDto recipeIngredientDto)
         {
+            var recipeIngredient = await new BaseRepository<RecipeIngredient>()
+                .SingleOrDefaultAsync(new{recipeIngredientDto.RecipieId,recipeIngredientDto.IngredientId});           
             await new BaseRepository<RecipeIngredient>()
                 .DeleteAsync(recipeIngredient);
         }
@@ -62,6 +73,7 @@ namespace BakerMate.Repositories.Recipes
                 { 
                     Id = r.Id,
                     Name = r.Name,
+                    Description = r.Description,
                     Ingredients = r.RecipeIngredients.Select(i => new IngredientDto
                     {
                         Id = i.IngredientId,
@@ -83,6 +95,29 @@ namespace BakerMate.Repositories.Recipes
                     Name = r.Name
                 })
                 .ToListAsync();
+        }
+
+        public async Task Delete(int id)
+        {
+            var recipedto = await Get(id);
+            var recipe = await new BaseRepository<Recipe>()
+                .SingleOrDefaultAsync(recipedto.Id);
+            await new BaseRepository<Recipe>().DeleteAsync(recipe);
+        }
+
+        public async Task<int> Update(RecipeDto updatedRecipe)
+        {
+            var recipe = new Recipe()
+                {
+                Name = updatedRecipe.Name,
+                Description = updatedRecipe.Description,
+                RecipeIngredients = updatedRecipe.Ingredients.Select(i => new RecipeIngredient
+                {
+                    IngredientId = i.Id
+                }).ToList()
+            };     
+            return (await new BaseRepository<Recipe>()
+                .UpdateAsync(recipe)).Id;
         }
     }
 }

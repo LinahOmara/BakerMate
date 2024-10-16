@@ -24,8 +24,7 @@
           <!--
           -->
           <operation id="add-ingredient-to-recipe" output="int" uri="api/recipe/{id}/ingredient" method="post" bridge="false" >
-            <param id="id" type="int" />
-            <param id="ingredient-id" type="int" />
+            <param id="recipe-ingredient" type="recipe-ingredient-dto" />
           </operation>
 
           <!--
@@ -113,13 +112,21 @@
           <!--
           -->
           <operation id="add-ingredient-to-recipe" output="int" >
-            <param id="recipe-ingredient" type="BakerMate.Domain.Model.recipe-ingredient" />
+            <param id="recipe-ingredient" type="recipe-ingredient-dto" />
+          </operation>
+		  
+		  <operation id="update" output="void" >
+            <param id="updated-recipe" type="recipe-dto" />
           </operation>
 
           <!--
           -->
           <operation id="delete-ingredient-from-recipe" output="void" >
-            <param id="recipe-ingredient" type="BakerMate.Domain.Model.recipe-ingredient" />
+            <param id="recipe-ingredient" type="recipe-ingredient-dto" />
+          </operation>
+		  
+		  <operation id="delete" output="void" >
+            <param id="id" type="int" />
           </operation>
 
           <!--
@@ -151,6 +158,10 @@
         <!---
         -->
         <type id="recipe-amount-dto" />
+		
+		<!---
+        -->
+        <type id="recipe-ingredient-dto" />
 
       </types>
     
