@@ -24,6 +24,7 @@ namespace BakerMate.Services.Ingredients
         public async Task<int> Create(IngredientDto newIngredient)
         {
             EnsureExists(newIngredient, "ingrediant object can't be null");
+
             var ingrediant = new Ingredient
             {
                 Name = newIngredient.Name,

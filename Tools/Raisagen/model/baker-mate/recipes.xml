@@ -65,7 +65,7 @@
           <!--
             Get Recipies full name : RecipeName + Amount + AmountUnit
           -->
-          <operation id="get-recipe-full-name" output="recipe-name-dto{}" uri="api/recipe/name" method="get" bridge="true" />
+          <operation id="get-recipe-sizes" output="recipe-name-dto{}" uri="api/recipe/name" method="get" bridge="true" />
 
         </service>
       
@@ -92,7 +92,7 @@
           <!--
             Get Recipies full name : RecipeName + Amount + AmountUnit
           -->
-          <operation id="get-recipe-full-name{}" output="recipe-name-dto" />
+          <operation id="get-recipe-full-name" output="recipe-name-dto{}" />
 
         </repository>
 

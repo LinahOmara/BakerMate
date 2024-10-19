@@ -33,6 +33,7 @@ namespace BakerMate.WPF.ViewModel
             MasterList.Clear();
             MasterList = new(bakerMateContext.Set<Ingredient>().Include(x => x.UnitOfMeasure).ToList());
         }
+
         public IngredientViewModel()
         {
             List<Ingredient> ingredients = bakerMateContext.Set<Ingredient>().Include(x => x.UnitOfMeasure).ToList();

@@ -28,9 +28,9 @@ namespace BakerMate.Services.Recipes
             return await _repository.GetByRecipeId(id);
         }
 
-        public async Task<IEnumerable<RecipeNameDto>> GetRecipeFullName()
+        public async Task<IEnumerable<RecipeNameDto>> GetRecipeSizes()
         {
-            //return await _repository.GetRecipeFullName();
+            return await _repository.GetRecipeFullName();
             throw new System.Exception();
         }
     }

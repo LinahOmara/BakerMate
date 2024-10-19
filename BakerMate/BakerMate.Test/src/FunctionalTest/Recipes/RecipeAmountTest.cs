@@ -67,10 +67,10 @@ namespace BakerMate.FunctionalTest.Recipes
             };
 
         [Fact]
-        public async Task GetRecipeFullName()
+        public async Task GetRecipeSizes()
         {
             // Act
-            IEnumerable<RecipeNameDto> result = await _service.GetRecipeFullName();
+            IEnumerable<RecipeNameDto> result = await _service.GetRecipeSizes();
 
             // Assert
             Assert.NotNull(result);

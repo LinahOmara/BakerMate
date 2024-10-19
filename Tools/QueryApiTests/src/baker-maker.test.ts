@@ -51,7 +51,7 @@ app('baker-maker', async ctx => {
       operation(ctx, 'GetByRecipeId', '/api/recipe/{id}/amount', [
         { id: 0 }
       ])
-      operation(ctx, 'GetRecipeFullName', '/api/recipe/name')
+      operation(ctx, 'GetRecipeSizes', '/api/recipe/name')
     })
   })
 

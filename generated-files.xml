@@ -7,7 +7,7 @@
   <file name="/BakerMate/BakerMate.Infrastructure/src/Repositories/Ingredients/Bootstrap.cs" checksum="2110058378" read-only="true" />
   <file name="/BakerMate/BakerMate.Infrastructure/src/Repositories/Ingredients/IngredientRepository.cs" checksum="3094249103" read-only="false" />
   <file name="/BakerMate/BakerMate.Infrastructure/src/Repositories/Recipes/Bootstrap.cs" checksum="3128272406" read-only="true" />
-  <file name="/BakerMate/BakerMate.Infrastructure/src/Repositories/Recipes/RecipeAmountRepository.cs" checksum="1596401756" read-only="false" />
+  <file name="/BakerMate/BakerMate.Infrastructure/src/Repositories/Recipes/RecipeAmountRepository.cs" checksum="2511925357" read-only="false" />
   <file name="/BakerMate/BakerMate.Infrastructure/src/Repositories/Recipes/RecipeRepository.cs" checksum="3377305548" read-only="false" />
   <file name="/BakerMate/BakerMate.Infrastructure/src/Repositories/RepositoryBase.cs" checksum="476422852" read-only="true" />
   <file name="/BakerMate/BakerMate.Services/BakerMate.Services.csproj" checksum="4135800483" read-only="true" />
@@ -30,18 +30,18 @@
   <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/DTOs/RecipeAmountDto.cs" checksum="837166297" read-only="false" />
   <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/DTOs/RecipeDto.cs" checksum="3821129731" read-only="false" />
   <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/DTOs/RecipeNameDto.cs" checksum="3145797946" read-only="false" />
-  <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/IRecipeAmountRepository.cs" checksum="1426117053" read-only="true" />
-  <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/IRecipeAmountService.cs" checksum="4129563813" read-only="true" />
+  <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/IRecipeAmountRepository.cs" checksum="584486751" read-only="true" />
+  <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/IRecipeAmountService.cs" checksum="1312795336" read-only="true" />
   <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/IRecipeRepository.cs" checksum="1355648009" read-only="true" />
   <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/IRecipeService.cs" checksum="1911498086" read-only="true" />
-  <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/RecipeAmountService.cs" checksum="1709319942" read-only="false" />
+  <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/RecipeAmountService.cs" checksum="3782949244" read-only="false" />
   <file name="/BakerMate/BakerMate.Services/src/Services/Recipes/RecipeService.cs" checksum="623695167" read-only="false" />
   <file name="/BakerMate/BakerMate.Services/src/Services/ServiceBase.cs" checksum="434001223" read-only="true" />
   <file name="/BakerMate/BakerMate.Test/BakerMate.Test.csproj" checksum="761518735" read-only="true" />
   <file name="/BakerMate/BakerMate.Test/src/FunctionalTest/BakerOrg/BakerOrgTest.cs" checksum="425508513" read-only="false" />
   <file name="/BakerMate/BakerMate.Test/src/FunctionalTest/CustomWebApplicationFactory.cs" checksum="2226561254" read-only="false" />
   <file name="/BakerMate/BakerMate.Test/src/FunctionalTest/Ingredients/IngredientTest.cs" checksum="1677571489" read-only="false" />
-  <file name="/BakerMate/BakerMate.Test/src/FunctionalTest/Recipes/RecipeAmountTest.cs" checksum="2847490140" read-only="false" />
+  <file name="/BakerMate/BakerMate.Test/src/FunctionalTest/Recipes/RecipeAmountTest.cs" checksum="2220153852" read-only="false" />
   <file name="/BakerMate/BakerMate.Test/src/FunctionalTest/Recipes/RecipeTest.cs" checksum="2109474800" read-only="false" />
   <file name="/BakerMate/BakerMate.Test/xunit.runner.json" checksum="1506223285" read-only="true" />
   <file name="/BakerMate/BakerMate/BakerMate.csproj" checksum="1078185413" read-only="true" />
@@ -51,12 +51,12 @@
   <file name="/BakerMate/BakerMate/src/Controllers/APIController.cs" checksum="2116286407" read-only="true" />
   <file name="/BakerMate/BakerMate/src/Controllers/BakerOrg/BakerOrgController.cs" checksum="3006507262" read-only="true" />
   <file name="/BakerMate/BakerMate/src/Controllers/Ingredients/IngredientController.cs" checksum="2339385385" read-only="true" />
-  <file name="/BakerMate/BakerMate/src/Controllers/Recipes/RecipeAmountController.cs" checksum="840848108" read-only="true" />
+  <file name="/BakerMate/BakerMate/src/Controllers/Recipes/RecipeAmountController.cs" checksum="27905790" read-only="true" />
   <file name="/BakerMate/BakerMate/src/Controllers/Recipes/RecipeController.cs" checksum="4150159687" read-only="true" />
   <file name="/BakerMate/BakerMate/src/Filters/ExceptionFilter.cs" checksum="962184050" read-only="true" />
   <file name="/BakerMate/BakerMate/src/Filters/QueryStringConstraintAttribute.cs" checksum="3441186017" read-only="true" />
   <file name="/BakerMate/BakerMate/src/OpenAPI.cs" checksum="2704768224" read-only="true" />
   <file name="/BakerMate/BakerMate/src/Program.cs" checksum="1447600613" read-only="true" />
   <file name="/BakerMate/BakerMate/src/Startup.cs" checksum="1921285347" read-only="true" />
-  <file name="/Tools/QueryApiTests/src/baker-maker.test.ts" checksum="3090422548" read-only="false" />
+  <file name="/Tools/QueryApiTests/src/baker-maker.test.ts" checksum="1586668310" read-only="false" />
 </files>

@@ -15,6 +15,6 @@ namespace BakerMate.Services.Recipes
 
         Task<RecipeAmountDto> GetByRecipeId(int id);
 
-        Task<IEnumerable<RecipeNameDto>> GetRecipeFullName();
+        Task<IEnumerable<RecipeNameDto>> GetRecipeSizes();
     }
 }

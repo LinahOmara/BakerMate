@@ -4,6 +4,7 @@
  * Licensed Material - Property of Baker Mate.
  */
 
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BakerMate.Services.Recipes;
 
@@ -26,6 +27,11 @@ namespace BakerMate.Repositories.Recipes
         }
 
         public async Task<RecipeNameDto> GetRecipeFullName()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        Task<IEnumerable<RecipeNameDto>> IRecipeAmountRepository.GetRecipeFullName()
         {
             throw new System.NotImplementedException();
         }

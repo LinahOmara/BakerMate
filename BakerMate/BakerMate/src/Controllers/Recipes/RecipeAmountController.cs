@@ -36,9 +36,9 @@ namespace BakerMate.Controllers.Recipes
         }
 
         [HttpGet, Route("api/recipe/name")]
-        public async Task<ActionResult<IEnumerable<RecipeNameDto>>> GetRecipeFullName()
+        public async Task<ActionResult<IEnumerable<RecipeNameDto>>> GetRecipeSizes()
         {
-            IEnumerable<RecipeNameDto> result = await _service.GetRecipeFullName();
+            IEnumerable<RecipeNameDto> result = await _service.GetRecipeSizes();
             return Ok(result);
         }
     }
