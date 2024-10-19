@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BakerMate.Services.Recipes;
+using BakerMate.Services.Recipes.DTOs;
 
 namespace BakerMate.Controllers.Recipes
 {
@@ -28,17 +29,17 @@ namespace BakerMate.Controllers.Recipes
             return Ok(result);
         }
 
-        [HttpPost, Route("api/recipe/amount")]
-        public async Task<ActionResult<int>> CreateRecipeAmount(RecipeDto newRecipeAmount)
+        [HttpPost, Route("api/recipe/size")]
+        public async Task<ActionResult<int>> CreateRecipeSize(RecipeSizeDto newRecipeSize)
         {
-            int result = await _service.CreateRecipeAmount(newRecipeAmount);
+            int result = await _service.CreateRecipeSize(newRecipeSize);
             return Ok(result);
         }
 
         [HttpPost, Route("api/recipe/{id}/ingredient")]
-        public async Task<ActionResult<int>> AddIngredientToRecipe(int id, int ingredientId)
+        public async Task<ActionResult<int>> AddIngredientToRecipe(RecipeIngredientDto recipeIngredient)
         {
-            int result = await _service.AddIngredientToRecipe(id, ingredientId);
+            int result = await _service.AddIngredientToRecipe(recipeIngredient);
             return Ok(result);
         }
 
