@@ -36,7 +36,7 @@ namespace BakerMate.Repositories.Recipes
                 }).ToList(),
             };
 
-            return (await new BaseRepository<Recipe>()
+            return (await new BaseRepository<Recipe>(_dbContext)
                 .InsertAsync(recipe)).Id;
         }
 
@@ -48,7 +48,7 @@ namespace BakerMate.Repositories.Recipes
                 Multiplier = newRecipeAmount.Multiplier,
                 OutputWeight = newRecipeAmount.OutputWeight
             };
-            return (await new BaseRepository<RecipeSize>().InsertAsync(RecipeSize)).Id;
+            return (await new BaseRepository<RecipeSize>(_dbContext).InsertAsync(RecipeSize)).Id;
         }
 
         public async Task<int> AddIngredientToRecipe(RecipeIngredientDto recipeIngredientDto)
@@ -60,20 +60,20 @@ namespace BakerMate.Repositories.Recipes
                 IngredientQuantity = recipeIngredientDto.IngredientQuantity,
                 UnitOfMeasureId = recipeIngredientDto.UnitOfMeasureId
             };
-           return (await new BaseRepository<RecipeIngredient>().InsertAsync(recipeIngredient)).IngredientId;
+           return (await new BaseRepository<RecipeIngredient>(_dbContext).InsertAsync(recipeIngredient)).IngredientId;
         }
 
         public async Task DeleteIngredientFromRecipe(RecipeIngredientDto recipeIngredientDto)
         {
-            var recipeIngredient = await new BaseRepository<RecipeIngredient>()
+            var recipeIngredient = await new BaseRepository<RecipeIngredient>(_dbContext)
                 .SingleOrDefaultAsync(new{recipeIngredientDto.RecipieId,recipeIngredientDto.IngredientId});           
-            await new BaseRepository<RecipeIngredient>()
+            await new BaseRepository<RecipeIngredient>(_dbContext)
                 .DeleteAsync(recipeIngredient);
         }
 
         public async Task<RecipeDto> Get(int recipeId)
         {
-            return await new BaseRepository<Recipe>()
+            return await new BaseRepository<Recipe>(_dbContext)
                 .GetAll(r => r.Id == recipeId)
                 .Select(r => new RecipeDto()
                 { 
@@ -92,7 +92,7 @@ namespace BakerMate.Repositories.Recipes
 
         public async Task<IEnumerable<RecipeNameDto>> GetNames()
         {
-            return await new BaseRepository<Recipe>()
+            return await new BaseRepository<Recipe>(_dbContext)
                 .GetAll()
                 .Select(r => new RecipeNameDto()
                 {
@@ -105,9 +105,9 @@ namespace BakerMate.Repositories.Recipes
         public async Task Delete(int id)
         {
             var recipedto = await Get(id);
-            var recipe = await new BaseRepository<Recipe>()
+            var recipe = await new BaseRepository<Recipe>(_dbContext)
                 .SingleOrDefaultAsync(recipedto.Id);
-            await new BaseRepository<Recipe>().DeleteAsync(recipe);
+            await new BaseRepository<Recipe>(_dbContext).DeleteAsync(recipe);
         }
 
         public async Task<int> Update(RecipeDto updatedRecipe)
@@ -121,7 +121,7 @@ namespace BakerMate.Repositories.Recipes
                     IngredientId = i.Id
                 }).ToList()
             };     
-            return (await new BaseRepository<Recipe>()
+            return (await new BaseRepository<Recipe>(_dbContext)
                 .UpdateAsync(recipe)).Id;
         }
 

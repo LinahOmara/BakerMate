@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BakerMate.Repositories;
 using BakerMate.Services;
+using BakerMate.DbContext.Presistance;
+using Microsoft.EntityFrameworkCore;
 
 namespace BakerMate
 {
@@ -27,6 +29,8 @@ namespace BakerMate
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOpenApi(Configuration);
+            services.AddDbContext<BakerMateContext>(options => options.
+            UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddRepositories(Configuration);
             services.AddServices(Configuration);
             services.AddResponseCompression();

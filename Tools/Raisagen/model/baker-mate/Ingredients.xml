@@ -18,7 +18,7 @@
           <!--
           -->
           <operation id="update" output="int" uri="api/Ingredients/{id}" method="put" bridge="false" >
-            <param id="Ingredient-id" type="int" />
+            <param id="id" type="int" />
             <param id="new-Ingredient" type="Ingredient-dto" />
           </operation>
 

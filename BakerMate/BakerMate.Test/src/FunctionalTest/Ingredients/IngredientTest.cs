@@ -51,10 +51,10 @@ namespace BakerMate.FunctionalTest.Ingredients
 
         [Theory]
         [MemberData(nameof(Update_Data))]
-        public async Task Update(int ingredientId, IngredientDto newIngredient)
+        public async Task Update(int id, IngredientDto newIngredient)
         {
             // Act
-            int result = await _service.Update(ingredientId, newIngredient);
+            int result = await _service.Update(id, newIngredient);
 
             // Assert
             Assert.NotNull(result);

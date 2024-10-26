@@ -29,9 +29,9 @@ namespace BakerMate.Controllers.Ingredients
         }
 
         [HttpPut, Route("api/Ingredients/{id}")]
-        public async Task<ActionResult<int>> Update(int ingredientId, IngredientDto newIngredient)
+        public async Task<ActionResult<int>> Update(int id, IngredientDto newIngredient)
         {
-            int result = await _service.Update(ingredientId, newIngredient);
+            int result = await _service.Update(id, newIngredient);
             return Ok(result);
         }
 

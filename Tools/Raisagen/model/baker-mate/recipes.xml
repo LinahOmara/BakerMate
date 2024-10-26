@@ -11,39 +11,39 @@
 
           <!--
           -->
-          <operation id="create" output="int" uri="api/recipe" method="post" bridge="true" >
+          <operation id="create" output="int" uri="api/recipes" method="post" bridge="true" >
             <param id="new-recipe" type="recipe-dto" />
           </operation>
 
           <!--
           -->
-          <operation id="create-recipe-size" output="int" uri="api/recipe/size" method="post" bridge="false" >
+          <operation id="create-recipe-size" output="int" uri="api/recipes/size" method="post" bridge="false" >
             <param id="new-recipe-size" type="recipe-size-dto" />
           </operation>
 
           <!--
           -->
-          <operation id="add-ingredient-to-recipe" output="int" uri="api/recipe/{id}/ingredient" method="post" bridge="false" >
+          <operation id="add-ingredient-to-recipe" output="int" uri="api/recipes/{id}/ingredient" method="post" bridge="false" >
             <param id="recipe-ingredient" type="recipe-ingredient-dto" />
           </operation>
 
           <!--
           -->
-          <operation id="delete-ingredient-from-recipe" output="void" uri="api/recipe/{id}/ingrediant" method="delete" bridge="false" >
+          <operation id="delete-ingredient-from-recipe" output="void" uri="api/recipes/{id}/ingrediant" method="delete" bridge="false" >
             <param id="id" type="int" />
             <param id="ingredient-id" type="int" />
           </operation>
 
           <!--
           -->
-          <operation id="get" output="recipe-dto" uri="api/recipe/{id}" method="get" bridge="true" >
+          <operation id="get" output="recipe-dto" uri="api/recipes/{id}" method="get" bridge="true" >
             <param id="recipe-id" type="int" />
           </operation>
 
           <!--
             Get Recipies full name : RecipeName + Amount + AmountUnit
           -->
-          <operation id="get-names" output="recipe-name-dto{}" uri="api/recipe/name" method="get" bridge="true" />
+          <operation id="get-names" output="recipe-name-dto{}" uri="api/recipes/name" method="get" bridge="true" />
 
         </service>
 
@@ -87,7 +87,7 @@
 
           <!--
           -->
-          <operation id="get" output="recipe-dto" uri="api/recipe/{id}" >
+          <operation id="get" output="recipe-dto" uri="api/recipes/{id}" >
             <param id="recipe-id" type="int" />
           </operation>
 

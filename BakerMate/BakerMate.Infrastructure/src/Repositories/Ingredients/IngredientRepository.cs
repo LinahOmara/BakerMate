@@ -25,13 +25,13 @@ namespace BakerMate.Repositories.Ingredients
 
         public async Task<int> Create(Ingredient newIngredient)
         {
-            return (await new BaseRepository<Ingredient>()
+            return (await new BaseRepository<Ingredient>(_dbContext)
                 .InsertAsync(newIngredient)).Id;
         }
 
         public async Task<int> Update(Ingredient newIngredient)
         {
-            return (await new BaseRepository<Ingredient>()
+            return (await new BaseRepository<Ingredient>(_dbContext)
                 .UpdateAsync(newIngredient)).Id;
         }
 
@@ -39,21 +39,21 @@ namespace BakerMate.Repositories.Ingredients
         {
             var ing = await Get(id);
             
-            await new BaseRepository<Ingredient>()
+            await new BaseRepository<Ingredient>(_dbContext)
                 .DeleteAsync(ing);
                 
         }
 
         public async Task<IEnumerable<Ingredient>> Get()
         {
-            return await new BaseRepository<Ingredient>()
+            return await new BaseRepository<Ingredient>(_dbContext)
                 .GetAll()
                 .ToListAsync(); // change to enumberqble async 
         }
 
         public async Task<Ingredient> Get(int id)
         {
-            return await new BaseRepository<Ingredient>()
+            return await new BaseRepository<Ingredient>(_dbContext)
                 .GetAll()
                 .SingleOrDefaultAsync(i => i.Id == id);
         }

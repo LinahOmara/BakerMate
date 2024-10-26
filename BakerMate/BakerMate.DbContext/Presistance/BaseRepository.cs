@@ -17,8 +17,6 @@ namespace BakerMate.DbContext.Presistance
         protected readonly BakerMateContext _dbContext;
         protected DbSet<T> _dbSet;
 
-        public BaseRepository()
-        { }
         public BaseRepository(BakerMateContext dbContext)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException("DB Context not initialized");

@@ -13,7 +13,7 @@ namespace BakerMate.Services.Ingredients
     {
         Task<int> Create(IngredientDto newIngredient);
 
-        Task<int> Update(int ingredientId, IngredientDto newIngredient);
+        Task<int> Update(int id, IngredientDto newIngredient);
 
         Task Delete(int id);
 
