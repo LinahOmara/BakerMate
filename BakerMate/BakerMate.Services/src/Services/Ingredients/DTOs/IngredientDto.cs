@@ -12,7 +12,6 @@ namespace BakerMate.Services.Ingredients
         public string Name { get; set; }
         public double Price { get; set; }
         public string PurchaceLocation { get; set; }
-        public int UnitOfMeasureId { get; set; }
-        public string UnitOfMeasure { get; set; }
+
     }
 }

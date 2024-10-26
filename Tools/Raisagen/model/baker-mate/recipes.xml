@@ -47,54 +47,10 @@
 
         </service>
 
-        <service id="recipe-amount" repositories="recipe-amount" >
-
-          <!--
-          -->
-          <operation id="create" output="int" uri="api/recipeAmount" method="post" bridge="true" >
-            <param id="new-recipe-amount" type="recipe-amount-dto" />
-          </operation>
-
-          <!--
-          -->
-          <operation id="get-by-recipe-id" output="recipe-amount-dto" uri="api/recipe/{id}/amount" method="get" bridge="true" >
-            <param id="id" type="int" />
-          </operation>
-
-          <!--
-            Get Recipies full name : RecipeName + Amount + AmountUnit
-          -->
-          <operation id="get-recipe-sizes" output="recipe-name-dto{}" uri="api/recipe/name" method="get" bridge="true" />
-
-        </service>
-      
       </services>
       
       <repositories>
       
-        <!---
-        -->
-        <repository id="recipe-amount" depends-on="">
-
-          <!--
-          -->
-          <operation id="create" output="int" >
-            <param id="new-recipe-amount" type="recipe-amount-dto" />
-          </operation>
-
-          <!--
-          -->
-          <operation id="get-by-recipe-id" output="recipe-amount-dto" >
-            <param id="id" type="int" />
-          </operation>
-
-          <!--
-            Get Recipies full name : RecipeName + Amount + AmountUnit
-          -->
-          <operation id="get-recipe-full-name" output="recipe-name-dto{}" />
-
-        </repository>
-
         <repository id="recipe" depends-on="">
 
           <!--

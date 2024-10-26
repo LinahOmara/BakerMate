@@ -12,7 +12,7 @@ namespace BakerMate.Domain.Model
         public int IngredientId { get; set; }
         public int UnitOfMeasureId { get; set; }
         public double IngredientQuantity { get; set; }
-        public UnitOfMeasure IngredientQuantityUnit { get; set; }
+        public UnitOfMeasure UnitOfMeasure { get; set; }
         public Recipe Recipe { get; set; }
         public Ingredient Ingredient { get; set; }
 

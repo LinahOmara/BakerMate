@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace BakerMate.DbContext.Configuration
 {
-    public class IngredientConfiguration : IEntityTypeConfiguration<Ingredient>
+    public class UnitOfMeasureCongfiguration : IEntityTypeConfiguration<UnitOfMeasure>
     {
-        public void Configure(EntityTypeBuilder<Ingredient> builder)
+        public void Configure(EntityTypeBuilder<UnitOfMeasure> builder)
         {
-            builder.ToTable(nameof(Ingredient), "BKM");
-
-
+            builder.ToTable(nameof(UnitOfMeasure), "BKM");
+            
         }
     }
 }
+

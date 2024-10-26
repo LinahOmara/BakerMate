@@ -29,11 +29,11 @@ app('baker-maker', async ctx => {
       operation(ctx, 'Create', '/api/recipe', [
         { _query: { newRecipe: 'RecipeDto' }  }
       ])
-      operation(ctx, 'CreateRecipeAmount', '/api/recipe/amount', [
-        { _query: { newRecipeAmount: 'RecipeDto' }  }
+      operation(ctx, 'CreateRecipeSize', '/api/recipe/size', [
+        { _query: { newRecipeSize: 'RecipeSizeDto' }  }
       ])
       operation(ctx, 'AddIngredientToRecipe', '/api/recipe/{id}/ingredient', [
-        { id: 0, _query: { ingredientId: 0 }  }
+        { _query: { recipeIngredient: 'RecipeIngredientDto' }  }
       ])
       operation(ctx, 'DeleteIngredientFromRecipe', '/api/recipe/{id}/ingrediant', [
         { id: 0, _query: { ingredientId: 0 }  }
@@ -42,16 +42,6 @@ app('baker-maker', async ctx => {
         { _query: { recipeId: 0 }  }
       ])
       operation(ctx, 'GetNames', '/api/recipe/name')
-    })
-
-    service(ctx, 'recipe-amount', ctx => {
-      operation(ctx, 'Create', '/api/recipeAmount', [
-        { _query: { newRecipeAmount: 'RecipeAmountDto' }  }
-      ])
-      operation(ctx, 'GetByRecipeId', '/api/recipe/{id}/amount', [
-        { id: 0 }
-      ])
-      operation(ctx, 'GetRecipeSizes', '/api/recipe/name')
     })
   })
 

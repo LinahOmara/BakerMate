@@ -12,8 +12,6 @@ namespace BakerMate.Domain.Model
         public string Name { get; set; }
         public double Price { get; set; }
         public string PurchaceLocation { get; set; }
-        public int UnitOfMeasureId { get; set; }
-        public UnitOfMeasure UnitOfMeasure { get; set; }
         public List<RecipeIngredient> RecipeIngredients { get; set; }
 
         // add creation and modification info // same for all tables 

@@ -50,17 +50,17 @@ namespace BakerMate.FunctionalTest.Recipes
             };
 
         [Theory]
-        [MemberData(nameof(CreateRecipeAmount_Data))]
-        public async Task CreateRecipeAmount(RecipeDto newRecipeAmount)
+        [MemberData(nameof(CreateRecipeSize_Data))]
+        public async Task CreateRecipeSize(RecipeSizeDto newRecipeSize)
         {
             // Act
-            int result = await _service.CreateRecipeAmount(newRecipeAmount);
+            int result = await _service.CreateRecipeSize(newRecipeSize);
 
             // Assert
             Assert.NotNull(result);
         }
 
-        public static IEnumerable<object[]> CreateRecipeAmount_Data =>
+        public static IEnumerable<object[]> CreateRecipeSize_Data =>
             new List<object[]>
             {
                 new object[] { },
@@ -68,10 +68,10 @@ namespace BakerMate.FunctionalTest.Recipes
 
         [Theory]
         [MemberData(nameof(AddIngredientToRecipe_Data))]
-        public async Task AddIngredientToRecipe(int id, int ingredientId)
+        public async Task AddIngredientToRecipe(RecipeIngredientDto recipeIngredient)
         {
             // Act
-            int result = await _service.AddIngredientToRecipe(id, ingredientId);
+            int result = await _service.AddIngredientToRecipe(recipeIngredient);
 
             // Assert
             Assert.NotNull(result);

@@ -85,7 +85,6 @@ namespace BakerMate.Repositories.Recipes
                         Id = i.IngredientId,
                         Name = i.Ingredient.Name,
                         Price = i.Ingredient.Price,
-                        UnitOfMeasure = i.Ingredient.UnitOfMeasure.Name
                     }).ToList(),
                 })
                 .SingleOrDefaultAsync();

@@ -29,7 +29,6 @@ namespace BakerMate.Services.Ingredients
             {
                 Name = newIngredient.Name,
                 Price = newIngredient.Price,
-                UnitOfMeasureId = newIngredient.UnitOfMeasureId,
                 PurchaceLocation = newIngredient.PurchaceLocation
             };
 
@@ -64,8 +63,7 @@ namespace BakerMate.Services.Ingredients
                     Id = i.Id,
                     Name = i.Name,
                     Price = i.Price,
-                    PurchaceLocation = i.PurchaceLocation,
-                    UnitOfMeasureId = i.UnitOfMeasureId
+                    PurchaceLocation = i.PurchaceLocation
                 });
         }
 

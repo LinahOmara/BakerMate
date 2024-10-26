@@ -14,7 +14,6 @@ namespace BakerMate.Services.Recipes
         internal static IServiceCollection AddRecipesServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IRecipeService, RecipeService>();
-            services.AddScoped<IRecipeAmountService, RecipeAmountService>();
             return services;
         }
     }

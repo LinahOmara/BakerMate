@@ -31,7 +31,7 @@ namespace BakerMate.WPF.ViewModel
                 Order order = (Order)MasterSelectedItem;
                 if (order is not null)
                 {
-                    if (order.OrderRecipes is not null)
+                   // if (order.OrderRecipes is not null)
                     {
                         OrderRecipeViewModel orderRecipeViewModel = new(order);
                         CurrentView = orderRecipeViewModel;
@@ -47,14 +47,14 @@ namespace BakerMate.WPF.ViewModel
                 bakerMateContext.Entry(item).CurrentValues.SetValues(bakerMateContext.Entry(item).OriginalValues);
             }
             MasterList.Clear();
-            MasterList = new(bakerMateContext.Set<Order>().Include(x => x.OrderRecipes).ToList());
+          //  MasterList = new(bakerMateContext.Set<Order>().Include(x => x.OrderRecipes).ToList());
             bakerMateContext.ChangeTracker.Clear();
         }
 
         public OrdersViewModel()
         {
-            List<Order> orders = bakerMateContext.Set<Order>().Include(x=>x.OrderRecipes).ToList();
-            MasterList = new(orders);
+          //  List<Order> orders = bakerMateContext.Set<Order>().Include(x=>x.OrderRecipes).ToList();
+          ///  MasterList = new(orders);
             AddCommand = new RelayCommand
                 (
                 x =>
