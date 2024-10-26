@@ -15,6 +15,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakerMate.Services", "Baker
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakerMate.WPF", "BakerMate\BakerMateWPF\BakerMate.WPF.csproj", "{84AF2C70-6003-4518-A418-D247E107FAAD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{574772BE-D94F-4A21-90F9-5BB853A09CFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "model", "model", "{30D3C4AE-4FEE-41BE-99C3-7A363685A751}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\Raisagen\model\model.xml = Tools\Raisagen\model\model.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "baker-mate", "baker-mate", "{2C4FA4F3-7991-43E5-930A-8B5B48A82CD6}"
+	ProjectSection(SolutionItems) = preProject
+		Tools\Raisagen\model\baker-mate\baker-org.xml = Tools\Raisagen\model\baker-mate\baker-org.xml
+		Tools\Raisagen\model\baker-mate\Ingredients.xml = Tools\Raisagen\model\baker-mate\Ingredients.xml
+		Tools\Raisagen\model\baker-mate\model.xml = Tools\Raisagen\model\baker-mate\model.xml
+		Tools\Raisagen\model\baker-mate\recipes.xml = Tools\Raisagen\model\baker-mate\recipes.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +63,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30D3C4AE-4FEE-41BE-99C3-7A363685A751} = {574772BE-D94F-4A21-90F9-5BB853A09CFB}
+		{2C4FA4F3-7991-43E5-930A-8B5B48A82CD6} = {30D3C4AE-4FEE-41BE-99C3-7A363685A751}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61548D55-ECCD-4FD7-BD7B-6C822593EC54}
