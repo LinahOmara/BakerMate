@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakerMate.Infrastructure", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakerMate.Services", "BakerMate\BakerMate.Services\BakerMate.Services.csproj", "{2E2BDD7A-ED08-4217-BFC5-AC11717A1F0D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakerMate.WPF", "BakerMate\BakerMateWPF\BakerMate.WPF.csproj", "{84AF2C70-6003-4518-A418-D247E107FAAD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{574772BE-D94F-4A21-90F9-5BB853A09CFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "model", "model", "{30D3C4AE-4FEE-41BE-99C3-7A363685A751}"
@@ -56,10 +54,6 @@ Global
 		{2E2BDD7A-ED08-4217-BFC5-AC11717A1F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E2BDD7A-ED08-4217-BFC5-AC11717A1F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E2BDD7A-ED08-4217-BFC5-AC11717A1F0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{84AF2C70-6003-4518-A418-D247E107FAAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{84AF2C70-6003-4518-A418-D247E107FAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{84AF2C70-6003-4518-A418-D247E107FAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{84AF2C70-6003-4518-A418-D247E107FAAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
