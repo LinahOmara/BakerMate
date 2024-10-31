@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BakerMate\BakerMate.DbContext\BakerMate.DbContext.csproj" />
+    <ProjectReference Include="..\BakerMate\BakerMate.Domain\BakerMate.Domain.csproj" />
+    <ProjectReference Include="..\BakerMate\BakerMate.Infrastructure\BakerMate.Infrastructure.csproj" />
+    <ProjectReference Include="..\BakerMate\BakerMate.Services\BakerMate.Services.csproj" />
+    <ProjectReference Include="..\BakerMate\BakerMate\BakerMate.csproj" />
+  </ItemGroup>
+
+</Project>

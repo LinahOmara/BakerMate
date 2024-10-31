@@ -14,6 +14,7 @@ namespace BakerMate.DbContext.Presistance
         {
             var optionsBuilder = new DbContextOptionsBuilder<BakerMateContext>();
             optionsBuilder.UseSqlServer("Server=tcp:baker-mate-dev-db-derver.database.windows.net,1433;Initial Catalog=bakerMate;Persist Security Info=False;User ID=bakerMateDBAdmin;Password=VPZy8M8j8US$bA6;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;");
+            //optionsBuilder.UseSqlServer("server=enppi4106\\SP;database=BakerMate;Integrated Security=True;");
             return new BakerMateContext(optionsBuilder.Options);
         }
     }

@@ -4,6 +4,7 @@ using BakerMate.DbContext.Presistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BakerMate.DbContext.Migrations
 {
     [DbContext(typeof(BakerMateContext))]
-    partial class BakerMateContextModelSnapshot : ModelSnapshot
+    [Migration("20241031204851_AddingSize_RecipeSize")]
+    partial class AddingSize_RecipeSize
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,7 +94,7 @@ namespace BakerMate.DbContext.Migrations
                     b.Property<DateTime>("OrderingDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 10, 31, 23, 51, 3, 315, DateTimeKind.Local).AddTicks(2502));
+                        .HasDefaultValue(new DateTime(2024, 10, 31, 23, 48, 51, 353, DateTimeKind.Local).AddTicks(8979));
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
@@ -171,7 +173,7 @@ namespace BakerMate.DbContext.Migrations
                     b.Property<int>("RecipieId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Size")
+                    b.Property<string>("size")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
